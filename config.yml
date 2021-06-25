@@ -1,39 +1,60 @@
-# Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/components/
+# Configuration for Rasa NLU for building a simple Hi-Hello bot.
 language: en
 
+# Configuration for the NLU pipeline
 pipeline:
-# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# # If you'd like to customize it, uncomment and adjust the pipeline.
-# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-#   - name: WhitespaceTokenizer
-#   - name: RegexFeaturizer
-#   - name: LexicalSyntacticFeaturizer
-#   - name: CountVectorsFeaturizer
-#   - name: CountVectorsFeaturizer
-#     analyzer: char_wb
-#     min_ngram: 1
-#     max_ngram: 4
-#   - name: DIETClassifier
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: EntitySynonymMapper
-#   - name: ResponseSelector
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: FallbackClassifier
-#     threshold: 0.3
-#     ambiguity_threshold: 0.1
+  # 0. Language Model
+  # Using SpacyNLP pre-trained language model to initialize spaCy structures and use pre-trained word vectors (strings/utterances).
+  - name: "SpacyNLP"
+    model: "en_core_web_sm" # English (en) pipeline optimized for CPU with small size
+    case_sensitive: false # Not case-sensitive i.e. "Hello" and "hello" are understood as the same
+  # 1. Tokenizers
+  # Using the Whitespace Tokenizer to separate words at whitespaces
+  # - name: WhitespaceTokenizer
+  # Using SpacyTokenizer to separate the utterances into tokens based on configuration
+  - name: SpacyTokenizer
+    intent_tokenization_flag: false # Setting it to false to avoid splitting intents
+    intent_split_symbol: " " # Delimiter on which intents will be split
+    token_pattern: None # NO regular expression to detect tokens
+  # 2. Featurizers
+  # Using the SpacyFeaturizer to create vector representation of user messages and responses based on spaCy instruction-set
+  - name: SpacyFeaturizer
+  # Using the RegexFeaturizer to create vector representation of user messages (only) based on regular expressions
+  - name: RegexFeaturizer
+  # Using the LexicalSyntacticFeaturizer to create lexical and syntatic features for user messages (only) supporting entity extraction
+  - name: LexicalSyntacticFeaturizer
+  # Using the CountVectorsFeaturizer to create groupings of words from user messages, intents and responses
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb # char_wb creats character n-grams (char) only from text inside the specified word boundaries (wb)
+    min_ngram: 1 # Minimum of a unigram
+    max_ngram: 4 # Maximum of a quadrigram
+  # 3. Intent Classifier & 4. Entity Extractors
+  # Using DIETClassifier for both intent classification and entity extraction
+  - name: DIETClassifier
+    epochs: 100 # Train the classifier for 100 epochs i.e. 100 iterations over the training dataset
+    constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
+    model_confidence: linear_norm # Using linear_norm to normalize the computed dot products for confidence determination
+  # Using EntitySynonymMapper to associate synonymous entities (e.g. "Hi" with "Hello") 
+  - name: EntitySynonymMapper
+  # 5. Selectors
+  # Using ResponseSelector to generate a database of predicted responses with its confidence
+  - name: ResponseSelector
+    epochs: 100 # Train the selector for 100 epochs i.e. 100 iterations over the training dataset
+    constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
+  # 6. FallbackClassifier for assigning boilerplate intents where the actual classification scores are ambiguous or confidence lower than threshold)
+  - name: FallbackClassifier
+    threshold: 0.3 # Setting a classification threshold value of 0.3 (any classification scores lower than this, have "nlu_fallback" intent assigned)
+    ambiguity_threshold: 0.1 # Setting an ambiguity threshold value of 0.1 (any two different intents closer than this, have "nlu_fallback" intent assigned)
 
-# Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
+# Configuration for Rasa Core (policies)
 policies:
-# # No configuration for policies was provided. The following default policies were used to train your model.
-# # If you'd like to customize them, uncomment and adjust the policies.
-# # See https://rasa.com/docs/rasa/policies for more information.
-#   - name: MemoizationPolicy
-#   - name: RulePolicy
-#   - name: TEDPolicy
-#     max_history: 5
-#     epochs: 100
-#     constrain_similarities: true
+  # Using the MemoizationPolicy to remember the previous stories from training data
+  - name: MemoizationPolicy
+    max_history: 3 # Sets the maximum history context to 3 turns (1 turn is user request + bot response)
+  # Using the RulePolicy to enable handling conversations based on a set of ground rules specified
+  - name: RulePolicy
+  # Using the TEDPolicy (Transformer Embedding Dialogue) for a multi-tasking approach to action prediction and entity recognition
+  - name: TEDPolicy
+    max_history: 5 # Sets the maximum history context to 3 turns (1 turn is user request + bot response)
+    epochs: 100 # Train the policy for 100 epochs i.e. 100 iterations over the training dataset
+    constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
