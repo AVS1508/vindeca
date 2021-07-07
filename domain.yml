@@ -1,29 +1,69 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you doing?"
-
-  utter_cheer_up:
-  - text: "Let me tell you a joke: Why do we tell actors to break a leg? ...Because every play has a cast. :D"
-
-  utter_did_that_help:
-  - text: "I hope I made you feel better! :)"
-
-  utter_happy:
-  - text: "I'm glad that you are happy! :D"
-
-  utter_goodbye:
-  - text: "Good bye! It was nice talking to you."
-
+version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 120
   carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- coronavirus_statistics:
+    use_entities: true
+- coronavirus_guidance:
+    use_entities: true
+- coronavirus_symptoms:
+    use_entities: true
+- coronavirus_healthcare:
+    use_entities: true
+- coronavirus_vaccine:
+    use_entities: true
+entities:
+- coronavirus
+- statistics
+- guidance
+- vaccine
+- symptoms
+- healthcare
+- quarantine
+slots: {}
+responses:
+  utter_greet:
+  - text: Hey! How can I help you?
+  utter_cheer_up:
+  - text: 'Let me tell you a joke: Why do we tell actors to break a leg? ...Because every play has a cast. ;D'
+  utter_did_that_help:
+  - text: Was that helpful? If not, please let me know so that I can improve.
+  utter_happy:
+  - text: I'm glad that I could help you! :D
+  utter_not_happy:
+  - text: Oh, sorry then! I will try to be smarter. :)
+  utter_goodbye:
+  - text: Good bye! It was nice talking to you.
+  utter_coronavirus_statistics:
+  - image: https://media.npr.org/assets/img/2021/02/28/seamus-coronavirus-d3-world-map-20200323_wide-c48bd7dbfa75c021b6f52e3bfc279e2fcd8d6c41.png
+    text: 'I think you looking for COVID-19 statistics: '
+  utter_coronavirus_guidance:
+  - image: https://www.unicef.org/albania/sites/unicef.org.albania/files/styles/press_release_feature/public/Image%20corona%20virus.JPG?itok=MyIzfe6H
+    text: 'I think you need some guidance on COVID-19: '
+  utter_coronavirus_symptoms:
+  - image: https://media.healthdirect.org.au/images/inline/original/covid-cold-flu-symptoms-bd24a5.png
+    text: 'I think you are searching symptoms of COVID-19: '
+  utter_coronavirus_healthcare:
+  - image: https://www.hopkinsmedicine.org/sebin/p/y/INF2004038_LB_Right%20Health%20Care_infographic-16_640.jpg
+    text: 'I think you might be looking for healthcare options for COVID-19 patients: '
+  utter_coronavirus_vaccine:
+  - image: https://resize.indiatvnews.com/en/resize/newbucket/715_-/2021/04/cowin-1619606363.jpg
+    text: 'I think you want to get vaccinated for COVID-19: '
+actions: []
+forms: {}
+e2e_actions: []
