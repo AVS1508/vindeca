@@ -7,7 +7,7 @@ pipeline:
     # Using SpacyNLP pre-trained language model to initialize spaCy structures and use pre-trained word vectors 
     # (strings/utterances).
     - name: "SpacyNLP"
-      model: "en_core_web_sm" # English (en) pipeline optimized for CPU with small size
+      model: "en_core_web_md" # English (en) pipeline optimized for CPU with medium size
       case_sensitive: false # Not case-sensitive i.e. "Hello" and "hello" are understood as the same
     # 1. Tokenizers
     # (Not) Using the Whitespace Tokenizer to separate words at whitespaces
