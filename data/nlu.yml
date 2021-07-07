@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - good afternoon
@@ -30,7 +28,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -39,7 +36,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-
+    - Yes, thank you!
 - intent: deny
   examples: |
     - no
@@ -49,7 +46,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -66,7 +62,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -83,3 +78,194 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+- intent: coronavirus_statistics
+  examples: |
+    - I want to know more about [covid19](coronavirus).
+    - What is [Covid-19](coronavirus)?
+    - What is [coronavirus](coronavirus)?
+    - What is [corona virus](coronavirus)?
+    - Can I get some [covid19](coronavirus) [info](statistics)?
+    - What is the latest [Covid-19](coronavirus) [information](statistics)?
+    - Can I get some [Covid-19](coronavirus) [data](statistics)?
+    - Tell me some important [Covid-19](coronavirus) [stats](statistics).
+    - Give me the recent [Covid-19](coronavirus) [statistics](statistics)
+    - Can I have some [info](statistics) on [coronavirus](coronavirus)?
+    - Can I have some [info](statistics) on [corona virus](coronavirus)?
+    - What are the number of [cases](statistics) of [covid19](coronavirus) right now?
+    - How many new [coronavirus](coronavirus) [cases](statistics) were registered today?
+    - How many [covid19](coronavirus) [deaths](statistics) so far?
+    - How many [covid19](coronavirus) patients are in [recovery](statistics)?
+    - How many [covid19](coronavirus) patients have [recovered](statistics)?
+    - How many [coronavirus](coronavirus) [deaths](statistics) so far?
+    - What is the [coronavirus](coronavirus) [recovery](statistics) rate right now?
+    - How many people infected with [coronavirus](coronavirus) have [recovered](statistics)?
+- intent: coronavirus_guidance
+  examples: |
+    - How to go about [social distancing](quarantine)?
+    - How to remain in [isolation](quarantine)?
+    - I need to [quarantine](quarantine).
+    - Can I have [guidance](guidance) about staying safe?
+    - What are the [precautions](guidance) for staying safe?
+    - What are the [guidelines](guidance) for staying safe?
+    - Can I get some [help](guidance) in following proper safety protocols?
+    - What are the [steps](guidance) for staying safe?
+    - I want to know more about [covid19](coronavirus) and [social distancing](quarantine).
+    - Why should we stay in [isolation](quarantine) for [covid19](coronavirus)?
+    - If I feel I might have [covid19](coronavirus), should I [quarantine](quarantine)?
+    - What are some important [covid19](coronavirus) [precautions](guidance)?
+    - What are some important [covid19](coronavirus) [guidelines](guidance)?
+    - Can I get some [help](guidance) for staying safe against [covid19](coronavirus)?
+    - What are some important [steps](guidance) for being safe from [covid19](coronavirus)?
+- intent: coronavirus_symptoms
+  examples: |
+    - What are the [covid19](coronavirus) [symptoms](symptoms)?
+    - What are the [coronavirus](coronavirus) [symptoms](symptoms)?
+    - What are the common [symptoms](symptoms) for [coronavirus](coronavirus)?
+    - I feel like I have [covid19](coronavirus) [symptoms](symptoms).
+    - I have a [cold](symptoms), can I have [covid19](coronavirus)?
+    - I have a [fever](symptoms), can I have [covid19](coronavirus)?
+    - I have a [dry cough](symptoms), can I have [covid19](coronavirus)?
+    - I am really [tired](symptoms), can I have [covid19](coronavirus)?
+    - I have some [bodyache](symptoms), can I have [covid19](coronavirus)?
+    - I have a [headache](symptoms), can I have [covid19](coronavirus)?
+    - I have a [sore throat](symptoms), can I have [covid19](coronavirus)?
+    - I have [diarrhoea](symptoms), can I have [covid19](coronavirus)?
+    - I have [conjunctivitis](symptoms), can I have [covid19](coronavirus)?
+    - I have [loss of taste](symptoms), can I have [covid19](coronavirus)?
+    - I have [loss of smell](symptoms), can I have [covid19](coronavirus)?
+    - I have lots of [rashes](symptoms), can I have [covid19](coronavirus)?
+    - I have some [discoloration](symptoms), can I have [covid19](coronavirus)?
+    - I have some [discolouration](symptoms), can I have [covid19](coronavirus)?
+    - I have some [difficulty breathing](symptoms), can I have [covid19](coronavirus)?
+    - I am having [chest pains](symptoms), can I have [covid19](coronavirus)?
+    - I feel a lot of [chest pressure](symptoms), can I have [covid19](coronavirus)?
+    - I have [speech loss](symptoms), can I have [covid19](coronavirus)?
+    - I have some [fatigue](symptoms), can I have [covid19](coronavirus)?
+- intent: coronavirus_healthcare
+  examples: |
+    - I need [healthcare](healthcare).
+    - I need to go to a [hospital](healthcare) to get treated.
+    - Are there any available [beds](healthcare) near me?
+    - Are there any available [icu](healthcare) wards near me?
+    - Can I get an [ambulance](healthcare) specifically for [covid19](coronavirus)?
+    - I want to get a [consultation](healthcare) about my health.
+    - Are there any [doctors](healthcare) around me?
+    - How to get canisters of [oxygen](healthcare)?
+    - Where can I find some [oxygen cylinders](healthcare)?
+    - I may have [covid19](coronavirus), I need [healthcare](healthcare).
+    - I may have [covid19](coronavirus), I need to go to a [hospital](healthcare) to get treated.
+    - I may have [covid19](coronavirus), are there any available [beds](healthcare) near me?
+    - I may have [covid19](coronavirus), are there any available [icu](healthcare) wards near me?
+    - I may have [covid19](coronavirus), can I get an [ambulance](healthcare)?
+    - I may have [covid19](coronavirus), I want to get a [consultation](healthcare) about my health.
+    - I may have [covid19](coronavirus), are there any [doctors](healthcare) around me?
+    - I may have [covid19](coronavirus), how to get canisters of [oxygen](healthcare)?
+    - I may have [covid19](coronavirus), where can I find some [oxygen cylinders](healthcare)?
+    - I have [coronavirus](coronavirus), I need [healthcare](healthcare)
+    - I have [coronavirus](coronavirus), I need to go to a [hospital](healthcare) to get treated.
+    - I have [coronavirus](coronavirus), are there any available [beds](healthcare) near me?
+    - I have [coronavirus](coronavirus), are there any available [icu](healthcare) wards near me?
+    - I have [coronavirus](coronavirus), can I get an [ambulance](healthcare)?
+    - I have [coronavirus](coronavirus), I want to get a [consultation](healthcare) about my health.
+    - I have [coronavirus](coronavirus), care there any [doctors](healthcare) around me?
+    - I have [coronavirus](coronavirus), how to get canisters of [oxygen](healthcare)?
+    - I have [coronavirus](coronavirus), where can I find some [oxygen cylinders](healthcare)?
+- intent: coronavirus_vaccine
+  examples: |
+    - How to get a [vaccine](vaccine)?
+    - I want to schedule a [vaccination](vaccine).
+    - When can I get a [jab](vaccine) for [coronavirus](coronavirus)?
+    - When can I get [coronavirus](coronavirus) [shot](vaccine)?
+    - When can I get [immunization](vaccine) against [COVID-19](coronavirus)?
+    - When is a person considered [inoculated](vaccine)?
+    - Can I get second [dose](vaccine) within 4 weeks?
+    - How to get the [coronavirus](coronavirus) [vaccine](vaccine)?
+    - I need to schedule a [coronavirus](coronavirus) [vaccination](vaccine).
+    - How to get the [covid19](coronavirus) [vaccine](vaccine)?
+    - How to get [covid19](coronavirus) [vaccination](vaccine)?
+    - How to get the [covid-19](coronavirus) [vaccine](vaccine)?
+    - How to get [covid-19](coronavirus) [vaccination](vaccine)?
+    - How to get the [covid-19](coronavirus) [injection](vaccine)?
+    - How to get the [coronavirus](coronavirus) [injection](vaccine)?
+    - WHO has approved which [vaccine](vaccine)?
+    - Can we get WHO-approved [vaccination](vaccine)?
+    - What is the availability of covishield [vaccine](vaccine)?
+    - What is the availability of covaxin [vaccine](vaccine)?
+    - What is the availability of astrazeneca [vaccine](vaccine)?
+    - What is the availability of sputnik [vaccine](vaccine)?
+    - What is the availability of sputnik v [vaccine](vaccine)?
+    - What is the availability of moderna [vaccine](vaccine)?
+    - What is the availability of pfizer [vaccine](vaccine)?
+    - How to get registered for [vaccine](vaccine) on CoWiN ?
+- synonym: coronavirus
+  examples: |
+    - covid19
+    - covid-19
+    - corona virus
+    - SARS-CoV-2
+    - server acute respiratory syndrome coronavirus 2
+- synonym: statistics
+  examples: |
+    - stats
+    - info
+    - data
+    - information
+- synonym: guidance
+  examples: |
+    - guidelines
+    - steps
+    - precautions
+    - help
+- synonym: vaccine
+  examples: |
+    - vaccination
+    - jab
+    - injection
+    - shot
+    - immunization
+    - inoculation
+    - booster
+    - dose
+    - first dose
+    - second dose
+- synonym: symptoms
+  examples: |
+    - cold
+    - fever
+    - dry cough
+    - tired
+    - bodyache
+    - headache
+    - sore throat
+    - diarrhoea
+    - conjunctivitis
+    - loss of taste
+    - loss of smell
+    - rashes
+    - discoloration
+    - discolouration
+    - difficulty breathing
+    - chest pains
+    - chest pressure
+    - speech loss
+    - fatigue
+- synonym: healthcare
+  examples: |
+    - hospital
+    - beds
+    - icu
+    - ambulance
+    - consultation
+    - doctor
+    - oxygen
+    - oxygen cylinder
+- synonym: quarantine
+  examples: |
+    - isolation
+    - containment
+    - segregation
+    - social distancing
+    - stay at home
+    - seclusion
+    - lack of contact
+    - separation
