@@ -1,13 +1,39 @@
 version: "2.0"
 nlu:
+- intent: chitchat/ask_name
+  examples: |
+    - Who are you?
+    - What is your name?
+    - May I know your name?
+    - What are you called?
+    - What do people call you?
+    - Do you have a name for yourself?
+- intent: chitchat/ask_weather
+  examples: |
+    - What's the weather like today?
+    - Does it look sunny outside today?
+    - Oh, do you mind checking the weather for me please?
+    - What is the weather forecast for today?
+- intent: faq/ask_covid_details
+  examples: |
+    - What is [COVID-19](coronavirus)?
+    - When was [COVID-19](coronavirus) pandemic?
+    - Which pandemic started in December 2019?
+- intent: faq/ask_covid_infection
+  examples: |
+    - How do you get infected by [COVID-19](coronavirus)?
+    - What is medium of propagation for [COVID-19](coronavirus)?
 - intent: greet
   examples: |
     - hey
     - hello
     - hi
+    - what's up
+    - wassup
     - hello there
     - good morning
     - good evening
+    - morning
     - moin
     - hey there
     - let's go
@@ -24,60 +50,73 @@ nlu:
     - good night
     - bye
     - goodbye
+    - thank you
     - have a nice day
     - see you around
     - bye bye
     - see you later
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-    - Yes, thank you!
+    - That's a [yes](affirmative)
+    - [y](affirmative)
+    - [Indeed](affirmative), you are [correct](affirmative)
+    - [Yeah](affirmative), that is [true](affirmative)
+    - [Aye](affirmative), you are [right](affirmative)
+    - [Sure](affirmative), I would [like](affirmative) that
+    - [definitely](affirmative)
+    - [correct](affirmative)
+    - I think so
+    - [like](affirmative) that
+    - [of course](affirmative)
+    - [Yes](affirmative), thank you!
 - intent: deny
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - [no](negative)
+    - [n](negative)
+    - [never](negative)
+    - [nope](negative)
+    - [nah](negative)
+    - [don't](negative)
+    - I [don't](negative) think so
+    - [don't](negative) [like](affirmative) that
+    - [no way](negative)
+    - [not](negative) [really](affirmative)
 - intent: mood_great
   examples: |
-    - perfect
-    - great
-    - amazing
+    - [perfect](happy)
+    - [good](happy)
+    - [happy](happy)
+    - [great](happy)
+    - [amazing](happy)
     - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
+    - [wonderful](happy)
+    - [well](happy)
+    - I feel [quite well](happy)
+    - I am feeling [very good](happy)
+    - I am [great](happy)
+    - I am [amazing](happy)
     - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - [not](negative) [bad](sad)
+    - super [stoked](happy)
+    - [extremely good](happy)
+    - so so [perfect](happy)
+    - so [good](happy)
+    - so [perfect](happy)
 - intent: mood_unhappy
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - my day was [horrible](sad)
+    - I am [sad](sad)
+    - I [don't](negative) feel very [well](happy)
+    - I am [disappointed](sad)
+    - [super sad](sad)
+    - I'm [so sad](sad)
+    - [sad](sad)
+    - [very sad](sad)
+    - [unhappy](sad)
+    - [not](negative) [good](happy)
+    - [not](negative) [very good](happy)
+    - [extremely sad](sad)
+    - [so sad](sad)
 - intent: coronavirus_statistics
   examples: |
     - I want to know more about [covid19](coronavirus).
@@ -269,3 +308,53 @@ nlu:
     - seclusion
     - lack of contact
     - separation
+- synonym: affirmative
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - y
+    - sure
+    - definitely
+    - correct
+    - right
+    - really
+    - aye
+    - like
+    - of course
+- synonym: negative
+  examples: |
+    - no
+    - n
+    - never
+    - nope
+    - nah
+    - don't
+    - no way
+    - not
+    - incorrect
+    - wrong
+    - dislike
+- synonym: happy
+  examples: |
+    - perfect
+    - good
+    - happy
+    - great
+    - amazing
+    - wonderful
+    - well
+    - quite well
+    - very good
+    - extremely good
+    - stoked
+- synonym: sad
+  examples: |
+    - horrible
+    - sad
+    - disappointed
+    - super sad
+    - very sad
+    - unhappy
+    - extremely sad
+    - so sad
