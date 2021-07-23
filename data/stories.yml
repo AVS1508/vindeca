@@ -2,205 +2,89 @@ version: "2.0"
 stories:
 - story: happy path
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_great
   - action: utter_happy
-  - action: utter_goodbye
 - story: sad path 1
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
-  - action: utter_did_that_help
+  - action: utter_did_cheering_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: sad path 2
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
-  - action: utter_did_that_help
+  - action: utter_did_cheering_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
 - story: learn coronavirus statistics satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_statistics
   - action: utter_coronavirus_statistics
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: learn coronavirus statistics not satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_statistics
   - action: utter_coronavirus_statistics
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
 - story: learn coronavirus guidance satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_guidance
   - action: utter_coronavirus_guidance
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: learn coronavirus guidance not satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_guidance
   - action: utter_coronavirus_guidance
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
 - story: learn coronavirus symptoms satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_symptoms
   - action: utter_coronavirus_symptoms
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: learn coronavirus symptoms not satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_symptoms
   - action: utter_coronavirus_symptoms
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
 - story: learn coronavirus healthcare satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_healthcare
   - action: utter_coronavirus_healthcare
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: learn coronavirus healthcare not satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_healthcare
   - action: utter_coronavirus_healthcare
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
 - story: learn coronavirus vaccine satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_vaccine
   - action: utter_coronavirus_vaccine
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-  - action: utter_goodbye
 - story: learn coronavirus vaccine not satisfied
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: coronavirus_vaccine
   - action: utter_coronavirus_vaccine
-  - action: utter_did_that_help
+  - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-  - action: utter_goodbye
-- story: Story from Conversation ID d7c7f0a25f9f4da89a2f548f6b82e3df
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: coronavirus_vaccine
-    entities:
-    - coronavirus: COVID
-    - vaccine: vaccines
-  - action: utter_coronavirus_vaccine
-  - action: utter_did_that_help
-  - intent: affirm
-    entities:
-    - guidance: helpful
-  - action: utter_happy
-  - action: utter_goodbye
-  - intent: coronavirus_guidance
-    entities:
-    - guidance: guidance
-    - coronavirus: coronavirus
-  - action: utter_coronavirus_guidance
-  - action: utter_did_that_help
-  - intent: goodbye
-  - action: utter_goodbye
-  - intent: goodbye
-  - action: utter_goodbye
-- story: Story from Conversation ID f02533441ffd416493048e929ba9fcb6
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: coronavirus_statistics
-    entities:
-    - coronavirus: coronavirus
-  - action: utter_coronavirus_statistics
-  - action: utter_did_that_help
-  - intent: coronavirus_healthcare
-    entities:
-    - healthcare: healthcare
-    - healthcare: healthcare
-  - action: utter_coronavirus_healthcare
-  - action: utter_did_that_help
-  - intent: coronavirus_symptoms
-    entities:
-    - symptoms: symptoms
-    - symptoms: symptoms
-    - coronavirus: coronavirus
-  - action: utter_coronavirus_symptoms
-  - action: utter_did_that_help
-  - intent: nlu_fallback
-  - action: action_default_fallback
-  - intent: affirm
-  - action: utter_happy
-  - action: utter_goodbye
-- story: Story from Conversation ID 201e5c13503345ff84008d9f722ea144
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: coronavirus_statistics
-    entities:
-    - coronavirus: coronavirus
-  - action: utter_coronavirus_statistics
-  - action: utter_did_that_help
-  - intent: coronavirus_healthcare
-    entities:
-    - healthcare: healthcare
-    - healthcare: healthcare
-  - action: utter_coronavirus_healthcare
-  - action: utter_did_that_help
-  - intent: coronavirus_symptoms
-    entities:
-    - symptoms: symptoms
-    - symptoms: symptoms
-    - coronavirus: coronavirus
-  - action: utter_coronavirus_symptoms
-  - action: utter_did_that_help
-  - intent: nlu_fallback
-  - action: utter_happy
-  - action: utter_goodbye
