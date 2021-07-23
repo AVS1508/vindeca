@@ -27,6 +27,8 @@ intents:
     use_entities: true
 - coronavirus_vaccine:
     use_entities: true
+- nlu_fallback:
+    use_entities: true
 entities:
 - coronavirus
 - statistics
