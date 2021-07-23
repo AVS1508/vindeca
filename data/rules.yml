@@ -1,12 +1,22 @@
 version: "2.0"
 
 rules:
-- rule: Say hello anytime the user says hello
+- rule: Respond hello anytime the user says hello
   steps:
   - intent: greet
   - action: utter_greet
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Respond goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
+
+- rule: Respond to FAQs whenever a pre-determined question is asked
+  steps:
+  - intent: faq
+  - action: utter_faq
+
+- rule: Respond to Rasa Chitchat whenever a bot-specific question is asked
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
