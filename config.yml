@@ -1,4 +1,4 @@
-# Configuration for Rasa NLU for building a simple Hi-Hello bot.
+# Configuration for Rasa NLU for building a COVID-19 chatbot - Elementary Chatbot
 language: en
 
 # Configuration for the NLU pipeline
