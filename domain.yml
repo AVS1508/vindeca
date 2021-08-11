@@ -27,6 +27,8 @@ intents:
     use_entities: true
 - coronavirus_vaccine:
     use_entities: true
+- coronavirus_assessment:
+    use_entities: true
 - nlu_fallback:
     use_entities: true
 - chitchat:
@@ -45,7 +47,39 @@ entities:
 - symptoms
 - healthcare
 - quarantine
-slots: {}
+- assessment
+slots:
+  is_vaccinated:
+    - type: bool
+      initial_value: false
+  vaccine_brand:
+    - type: categorical
+      values:
+        - Covaxin
+        - Covishield
+        - Sputnik
+        - Other
+        - None
+      initial_value: None
+  num_doses:
+    - type: categorical
+      values:
+        - 0 doses
+        - 1 dose
+        - 2 doses
+      initial_value: 0 doses
+  past_infection:
+    - type: bool
+      initial_value: false
+  current_symptoms:
+    - type: bool
+      initial_value: false
+  preexisting_conditions:
+    - type: bool
+      initial_value: false
+  travel_interstate:
+    - type: bool
+      initial_value: false
 responses:
   utter_chitchat/ask_name:
   - text: My name is Cova, short for COVID-19 Assistant.
@@ -85,23 +119,81 @@ responses:
   - text: Godspeed! I had a fun time chatting with a fun person like you.
   utter_coronavirus_statistics:
   - image: https://media.npr.org/assets/img/2021/02/28/seamus-coronavirus-d3-world-map-20200323_wide-c48bd7dbfa75c021b6f52e3bfc279e2fcd8d6c41.png
-    text: 'I think you are looking for COVID-19 statistics: '
+    text: 'I think you are looking for COVID-19 statistics.'
   utter_coronavirus_guidance:
   - image: https://www.unicef.org/albania/sites/unicef.org.albania/files/styles/press_release_feature/public/Image%20corona%20virus.JPG?itok=MyIzfe6H
-    text: 'I think you need some guidance on COVID-19: '
+    text: 'I think you need some guidance on COVID-19.'
   utter_coronavirus_symptoms:
   - image: https://media.healthdirect.org.au/images/inline/original/covid-cold-flu-symptoms-bd24a5.png
-    text: 'I think you are searching symptoms of COVID-19: '
+    text: 'I think you are searching symptoms of COVID-19.'
   utter_coronavirus_healthcare:
   - image: https://www.hopkinsmedicine.org/sebin/p/y/INF2004038_LB_Right%20Health%20Care_infographic-16_640.jpg
-    text: 'I think you might be looking for healthcare options for COVID-19 patients: '
+    text: 'I think you might be looking for healthcare options for COVID-19 patients.'
   utter_coronavirus_vaccine:
   - image: https://resize.indiatvnews.com/en/resize/newbucket/715_-/2021/04/cowin-1619606363.jpg
-    text: 'I think you want to get vaccinated for COVID-19: '
+    text: 'I think you want to get vaccinated for COVID-19.'
   utter_did_info_help:
   - text: Was that helpful? If not, please let me know so that I can improve.
   - text: I resolved your query, right? I'll be happy to become better and more informative.
   - text: What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner.
+  utter_ask_is_vaccinated:
+  - text: "Have you taken the vaccination for COVID-19?"
+    buttons: 
+      - title: "Yes"
+        payload: "/is_vaccinated_true"
+      - title: "No"
+        payload: "/is_vaccinated_true"
+  utter_ask_vaccine_brand:
+  - text: "Which vaccine have you taken (if you have not, choose None)?"
+    quick_replies: 
+      - title: "Covaxin"
+        payload: "/is_vaccinated_true"
+      - title: "Covishield"
+        payload: "/is_vaccinated_true"
+      - title: "Sputnik"
+        payload: "/is_vaccinated_true"
+      - title: "Other"
+        payload: "/is_vaccinated_true"
+      - title: "None"
+        payload: "/is_vaccinated_true"
+  utter_ask_num_doses:
+  - text: "How many vaccine doses have you taken?"
+    quick_replies: 
+      - title: "Covaxin"
+        payload: "/is_vaccinated_true"
+      - title: "Covishield"
+        payload: "/is_vaccinated_true"
+      - title: "Sputnik"
+        payload: "/is_vaccinated_true"
+  utter_ask_past_infection:
+  - text: "Have you had COVID-19 in the past 3 months or after taking the shot?"
+    buttons: 
+      - title: "Yes"
+        payload: "/is_vaccinated_true"
+      - title: "No"
+        payload: "/is_vaccinated_true"
+  utter_ask_current_symptoms:
+  - text: "Are you currently experiencing any of the following symptoms? \n Cough, Fever, Sore Throat, Chest Congestion or Runny Nose, Body ache, Difficulty in Breathing, Loss of senses of smell and taste, Pink eyes, Hearing impairment, Gastrointestinal symptoms"
+    buttons: 
+      - title: "Yes"
+        payload: "/is_vaccinated_true"
+      - title: "No"
+        payload: "/is_vaccinated_true"
+  utter_ask_preexisting_conditions:
+  - text: "Do you have any of the following pre-existing conditions? \n Diabetes, Hypertension, Lung disease, Heart Disease, Kidney Disorder, Asthma"
+    buttons: 
+      - title: "Yes"
+        payload: "/is_vaccinated_true"
+      - title: "No"
+        payload: "/is_vaccinated_true"
+  utter_ask_travel_interstate:
+  - text: "Have you travelled in the past 14 days to any state other than where you currently reside?"
+    buttons: 
+      - title: "Yes"
+        payload: "/is_vaccinated_true"
+      - title: "No"
+        payload: "/is_vaccinated_true"
 actions: []
-forms: {}
+forms: 
+  form_coronavirus_assessment
 e2e_actions: []
