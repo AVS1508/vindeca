@@ -5,23 +5,31 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 
-# This is a simple example for a custom action which utters "Hello World!"
+from typing import Any, Text, Dict, List, Union
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormAction
+
+class FormCoronavirusAssessment(FormAction):
+    def name(self) -> Text:
+        return "form_coronavirus_assessment"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["is_vaccinated", "vaccine_brand", "num_doses", "past_infection", "current_symptoms", "preexisting_conditions", "travel_interstate"]
+    
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+        return {
+            "is_vaccinated": [self.from_text()],
+            "vaccine_brand": [self.from_text()],
+            "num_doses": [self.from_text()],
+            "past_infection": [self.from_text()],
+            "current_symptoms": [self.from_text()],
+            "preexisting_conditions": [self.from_text()],
+            "travel_interstate": [self.from_text()],
+        }
+    
+    def submit (self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        return []
