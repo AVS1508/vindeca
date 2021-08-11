@@ -48,60 +48,60 @@ entities:
 slots: {}
 responses:
   utter_chitchat/ask_name:
-  - text: "My name is Cova, short for COVID-19 Assistant."
-  - text: "I am COVID-19 Assistant, but sometimes I go by Cova."
-  - text: "You can call me Cova, if you prefer it over COVID-19 Assistant."
+  - text: My name is Cova, short for COVID-19 Assistant.
+  - text: I am COVID-19 Assistant, but sometimes I go by Cova.
+  - text: You can call me Cova, if you prefer it over COVID-19 Assistant.
   utter_chitchat/ask_weather:
-  - text: "Today, it is going to rain like cats and dogs, not good for sunbathing. :("
-  - text: "Today, it is going to be mildy cloudy, you might just get a sneak peek at the Sun. :)"
-  - text: "Today, it is going to be sunny, and you can expect the temperatures to soar. :("
+  - text: Today, it is going to rain like cats and dogs, not good for sunbathing. :(
+  - text: Today, it is going to be mildy cloudy, you might just get a sneak peek at the Sun. :)
+  - text: Today, it is going to be sunny, and you can expect the temperatures to soar. :(
   utter_faq/ask_covid_details:
-  - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment."
+  - text: Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
   utter_faq/ask_covid_infection:
-  - text: "The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces. You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth."
+  - text: The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces. You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth.
   utter_greet:
-  - text: "Hey! How can I help you?"
-  - text: "Hello! May I be of any assistance?"
-  - text: "Greetings! It's a pleasure to talk to you, now, what can I do for you?"
+  - text: Hey! How can I help you?
+  - text: Hello! May I be of any assistance?
+  - text: Greetings! It's a pleasure to talk to you, now, what can I do for you?
   utter_cheer_up:
   - text: "How about I tell you a joke: 'Why do we tell actors to break a leg? ...because every play has a cast.' ;D"
   - text: "Maybe some comedy will help you: 'I can recommend a really good restaurant called Karma. There is no menu, you get what you deserve.' ;D"
   - text: "Some humor can make you feel better: 'Did you hear about the claustrophobic astronaut? He just needed a little space.' ;D"
   utter_did_cheering_help:
-  - text: "Was that enough to make you giggle? Laugh? If not, then I'll come back with a better joke soon."
-  - text: "I hope that I made you feel better, right? I'll be happy to become wittier next time."
-  - text: "What are your thoughts on my sense of humor? Pretty sure everybody can appreciate it."
+  - text: Was that enough to make you giggle? Laugh? If not, then I'll come back with a better joke soon.
+  - text: I hope that I made you feel better, right? I'll be happy to become wittier next time.
+  - text: What are your thoughts on my sense of humor? Pretty sure everybody can appreciate it.
   utter_happy:
-  - text: "I'm glad that I could help you! :D"
-  - text: "Oh, you flatter me! Always happy to see a friend smiling. :D"
-  - text: "So excited to see you smiling, and I'll keep telling you nice jokes so don't worry. :D"
+  - text: I'm glad that I could help you! :D
+  - text: Oh, you flatter me! Always happy to see a friend smiling. :D
+  - text: So excited to see you smiling, and I'll keep telling you nice jokes so don't worry. :D
   utter_not_happy:
-  - text: "Oh, sorry then! I will try to be smarter in the future. :)"
-  - text: "I hope I can make you feel better soon, I will try to learn more. :)"
-  - text: "It's sad to see you unhappy, please let me know what I can do to turn that frown upside down. :)"
+  - text: Oh, sorry then! I will try to be smarter in the future. :)
+  - text: I hope I can make you feel better soon, I will try to learn more. :)
+  - text: It's sad to see you unhappy, please let me know what I can do to turn that frown upside down. :)
   utter_goodbye:
-  - text: "Good bye! It was nice talking to you."
-  - text: "See you soon! It was truly a pleasure to converse with you."
-  - text: "Godspeed! I had a fun time chatting with a fun person like you."
+  - text: Good bye! It was nice talking to you.
+  - text: See you soon! It was truly a pleasure to converse with you.
+  - text: Godspeed! I had a fun time chatting with a fun person like you.
   utter_coronavirus_statistics:
   - image: https://media.npr.org/assets/img/2021/02/28/seamus-coronavirus-d3-world-map-20200323_wide-c48bd7dbfa75c021b6f52e3bfc279e2fcd8d6c41.png
-    text: "I think you are looking for COVID-19 statistics: "
+    text: 'I think you are looking for COVID-19 statistics: '
   utter_coronavirus_guidance:
   - image: https://www.unicef.org/albania/sites/unicef.org.albania/files/styles/press_release_feature/public/Image%20corona%20virus.JPG?itok=MyIzfe6H
-    text: "I think you need some guidance on COVID-19: "
+    text: 'I think you need some guidance on COVID-19: '
   utter_coronavirus_symptoms:
   - image: https://media.healthdirect.org.au/images/inline/original/covid-cold-flu-symptoms-bd24a5.png
-    text: "I think you are searching symptoms of COVID-19: "
+    text: 'I think you are searching symptoms of COVID-19: '
   utter_coronavirus_healthcare:
   - image: https://www.hopkinsmedicine.org/sebin/p/y/INF2004038_LB_Right%20Health%20Care_infographic-16_640.jpg
-    text: "I think you might be looking for healthcare options for COVID-19 patients: "
+    text: 'I think you might be looking for healthcare options for COVID-19 patients: '
   utter_coronavirus_vaccine:
   - image: https://resize.indiatvnews.com/en/resize/newbucket/715_-/2021/04/cowin-1619606363.jpg
-    text: "I think you want to get vaccinated for COVID-19: "
+    text: 'I think you want to get vaccinated for COVID-19: '
   utter_did_info_help:
-  - text: "Was that helpful? If not, please let me know so that I can improve."
-  - text: "I resolved your query, right? I'll be happy to become better and more informative."
-  - text: "What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner."
+  - text: Was that helpful? If not, please let me know so that I can improve.
+  - text: I resolved your query, right? I'll be happy to become better and more informative.
+  - text: What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner.
 actions: []
 forms: {}
 e2e_actions: []
