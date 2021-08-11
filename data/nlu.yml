@@ -235,14 +235,24 @@ nlu:
     - What is the availability of sputnik v [vaccine](vaccine)?
     - What is the availability of moderna [vaccine](vaccine)?
     - What is the availability of pfizer [vaccine](vaccine)?
-    - How to get registered for [vaccine](vaccine) on CoWiN ?
+    - How to get registered for [vaccine](vaccine) on CoWiN?
+- intent: coronavirus_assessment
+  examples: |
+    - [COVID-19](coronavirus) [assessment](assessment)
+    - [COVID-19](coronavirus) [check](assessment)
+    - [COVID-19](coronavirus) [risk](assessment)
+    - [COVID-19](coronavirus) [questionnaire](assessment)
+    - Can I get a [COVID-19](coronavirus) [assessment](assessment)?
+    - I want to [check](assessment) whether I have [COVID-19](coronavirus)?
+    - How much [risk](assessment) am I at of contracting [COVID-19](coronavirus)?
+    - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [questionnaire](assessment)?
 - synonym: coronavirus
   examples: |
     - covid19
     - covid-19
     - corona virus
     - SARS-CoV-2
-    - server acute respiratory syndrome coronavirus 2
+    - severe acute respiratory syndrome coronavirus 2
 - synonym: statistics
   examples: |
     - stats
@@ -308,6 +318,13 @@ nlu:
     - seclusion
     - lack of contact
     - separation
+- synonym: assessment
+  examples: |
+    - assess
+    - risk
+    - questionnaire
+    - question
+    - check
 - synonym: affirmative
   examples: |
     - yes
@@ -339,7 +356,6 @@ nlu:
   examples: |
     - perfect
     - good
-    - happy
     - great
     - amazing
     - wonderful
@@ -351,7 +367,6 @@ nlu:
 - synonym: sad
   examples: |
     - horrible
-    - sad
     - disappointed
     - super sad
     - very sad
