@@ -20,3 +20,18 @@ rules:
   steps:
   - intent: chitchat
   - action: utter_chitchat
+
+- rule: Activate the COVID-19 assessment form
+  steps:
+  - intent: coronavirus_assessment
+  - action: form_coronavirus_assessment
+  - active_loop: form_coronavirus_assessment
+
+- rule: Submit the COVID-19 assessment form
+  condition:
+  - active_loop: form_coronavirus_assessment
+  steps:
+  - action: form_coronavirus_assessment
+  - active_loop: null
+  - action: utter_slot_values
+  - action: utter_coronavirus_assessment
