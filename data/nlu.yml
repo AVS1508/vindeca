@@ -19,6 +19,7 @@ nlu:
     - What is [COVID-19](coronavirus)?
     - When was [COVID-19](coronavirus) pandemic?
     - Which pandemic started in December 2019?
+    - What's up?
 - intent: faq/ask_covid_infection
   examples: |
     - How do you get infected by [COVID-19](coronavirus)?
@@ -41,6 +42,9 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - Hey!
+    - Hello
+    - Hello!
 - intent: goodbye
   examples: |
     - good afternoon
@@ -55,6 +59,9 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - Good bye!
+    - Thank you!
+    - Oops!
 - intent: affirm
   examples: |
     - That's a [yes](affirmative)
@@ -69,6 +76,9 @@ nlu:
     - [like](affirmative) that
     - [of course](affirmative)
     - [Yes](affirmative), thank you!
+    - Okay
+    - Yes
+    - Yes, that was [helpful](guidance)!
 - intent: deny
   examples: |
     - [no](negative)
@@ -102,6 +112,8 @@ nlu:
     - so so [perfect](happy)
     - so [good](happy)
     - so [perfect](happy)
+    - Tell me a joke
+    - Yeah, I'm happy
 - intent: mood_unhappy
   examples: |
     - my day was [horrible](sad)
@@ -138,6 +150,7 @@ nlu:
     - How many [coronavirus](coronavirus) [deaths](statistics) so far?
     - What is the [coronavirus](coronavirus) [recovery](statistics) rate right now?
     - How many people infected with [coronavirus](coronavirus) have [recovered](statistics)?
+    - Tell me about [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} please
 - intent: coronavirus_guidance
   examples: |
     - How to go about [social distancing](quarantine)?
@@ -155,6 +168,8 @@ nlu:
     - What are some important [covid19](coronavirus) [guidelines](guidance)?
     - Can I get some [help](guidance) for staying safe against [covid19](coronavirus)?
     - What are some important [steps](guidance) for being safe from [covid19](coronavirus)?
+    - [Coronavirus](coronavirus) [guidance](guidance)
+    - Actually, can you tell me about [precautions]{"entity": "guidance", "value": "guidance"} I should take for [COVID-19]{"entity": "coronavirus", "value": "coronavirus"}
 - intent: coronavirus_symptoms
   examples: |
     - What are the [covid19](coronavirus) [symptoms](symptoms)?
@@ -180,6 +195,8 @@ nlu:
     - I feel a lot of [chest pressure](symptoms), can I have [covid19](coronavirus)?
     - I have [speech loss](symptoms), can I have [covid19](coronavirus)?
     - I have some [fatigue](symptoms), can I have [covid19](coronavirus)?
+    - [Yes]{"entity": "affirmative", "value": "affirmative"}, I am worried that I might have [coronavirus](coronavirus)?
+    - Oh, I have a [cold]{"entity": "symptoms", "value": "symptoms"} and [dry cough]{"entity": "symptoms", "value": "symptoms"} for the past two days, is it possible that I have [COVID-19]{"entity": "coronavirus", "value": "coronavirus"}?
 - intent: coronavirus_healthcare
   examples: |
     - I need [healthcare](healthcare).
@@ -209,6 +226,7 @@ nlu:
     - I have [coronavirus](coronavirus), care there any [doctors](healthcare) around me?
     - I have [coronavirus](coronavirus), how to get canisters of [oxygen](healthcare)?
     - I have [coronavirus](coronavirus), where can I find some [oxygen cylinders](healthcare)?
+    - Can I ask you about available [hospital]{"entity": "healthcare", "value": "healthcare"} [beds]{"entity": "healthcare", "value": "healthcare"} near me? I feel like I should be aware
 - intent: coronavirus_vaccine
   examples: |
     - How to get a [vaccine](vaccine)?
@@ -236,6 +254,8 @@ nlu:
     - What is the availability of moderna [vaccine](vaccine)?
     - What is the availability of pfizer [vaccine](vaccine)?
     - How to get registered for [vaccine](vaccine) on CoWiN?
+    - [Vaccines](vaccine)
+    - I wanted to know more about [COVID](coronavirus) [vaccines](vaccine)
 - intent: coronavirus_assessment
   examples: |
     - [COVID-19](coronavirus) [assessment](assessment)
@@ -246,42 +266,41 @@ nlu:
     - I want to [check](assessment) whether I have [COVID-19](coronavirus)?
     - How much [risk](assessment) am I at of contracting [COVID-19](coronavirus)?
     - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [questionnaire](assessment)?
+    - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [question](assessment)?
 - synonym: coronavirus
   examples: |
+    - COVID-19
     - covid19
     - covid-19
     - corona virus
     - SARS-CoV-2
     - severe acute respiratory syndrome coronavirus 2
-- synonym: statistics
-  examples: |
-    - stats
-    - info
-    - data
-    - information
 - synonym: guidance
   examples: |
+    - precautions
     - guidelines
     - steps
-    - precautions
     - help
-- synonym: vaccine
+- synonym: affirmative
   examples: |
-    - vaccination
-    - jab
-    - injection
-    - shot
-    - immunization
-    - inoculation
-    - booster
-    - dose
-    - first dose
-    - second dose
+    - Yes
+    - yes
+    - yeah
+    - yep
+    - y
+    - sure
+    - definitely
+    - correct
+    - right
+    - really
+    - aye
+    - like
+    - of course
 - synonym: symptoms
   examples: |
     - cold
-    - fever
     - dry cough
+    - fever
     - tired
     - bodyache
     - headache
@@ -308,6 +327,24 @@ nlu:
     - doctor
     - oxygen
     - oxygen cylinder
+- synonym: statistics
+  examples: |
+    - stats
+    - info
+    - data
+    - information
+- synonym: vaccine
+  examples: |
+    - vaccination
+    - jab
+    - injection
+    - shot
+    - immunization
+    - inoculation
+    - booster
+    - dose
+    - first dose
+    - second dose
 - synonym: quarantine
   examples: |
     - isolation
@@ -325,20 +362,6 @@ nlu:
     - questionnaire
     - question
     - check
-- synonym: affirmative
-  examples: |
-    - yes
-    - yeah
-    - yep
-    - y
-    - sure
-    - definitely
-    - correct
-    - right
-    - really
-    - aye
-    - like
-    - of course
 - synonym: negative
   examples: |
     - no
