@@ -37,8 +37,8 @@ pipeline:
     - name: DIETClassifier
       epochs: 100 # Train the classifier for 100 epochs i.e. 100 iterations over the training dataset
       constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
-      # Using linear_norm to normalize the computed dot products for confidence determination
-      model_confidence: linear_norm 
+      # Using softmax to normalize the computed dot products for confidence determination
+      model_confidence: softmax 
     # Using EntitySynonymMapper to associate synonymous entities (e.g. "Hi" with "Hello")
     - name: EntitySynonymMapper
     # 5. Selectors
@@ -50,10 +50,12 @@ pipeline:
     - name: ResponseSelector
       epochs: 100 # Train the selector for 100 epochs i.e. 100 iterations over the training dataset
       retrieval_intent: chitchat # Handling the Rasa chitchat retrieval intent
+      constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
     # Using ResponseSelector to generate a database of predicted responses with its confidence
     - name: ResponseSelector
       epochs: 100 # Train the selector for 100 epochs i.e. 100 iterations over the training dataset
       retrieval_intent: faq # Handling the FAQs retrieval intent
+      constrain_similarities: true # Using sigmoid (logistic) function to scale down high similarities to low
     # 6. FallbackClassifier for assigning boilerplate intents where the actual classification scores are ambiguous or 
     # confidence lower than threshold)
     - name: FallbackClassifier
