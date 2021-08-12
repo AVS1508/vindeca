@@ -1,5 +1,13 @@
 version: "2.0"
 stories:
+- story: greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+- story: farewell
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
 - story: happy path
   steps:
   - intent: mood_great
@@ -88,3 +96,55 @@ stories:
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
+- story: assess coronavirus risk to user comprehension
+  steps:
+  - intent: coronavirus_assessment
+  - action: form_coronavirus_assessment
+  - active_loop: form_coronavirus_assessment
+  - slot_was_set:
+    - is_vaccinated: true
+  - slot_was_set:
+    - requested_slot: is_vaccinated
+  - slot_was_set:
+    - vaccine_brand: Covishield
+  - slot_was_set:
+    - requested_slot: vaccine_brand
+  - slot_was_set:
+    - num_doses: '2'
+  - slot_was_set:
+    - requested_slot: num_doses
+  - slot_was_set:
+    - past_infection: false
+  - slot_was_set:
+    - requested_slot: past_infection
+  - slot_was_set:
+    - current_symptoms: false
+  - slot_was_set:
+    - requested_slot: current_symptoms
+  - slot_was_set:
+    - preexisting_conditions: false
+  - slot_was_set:
+    - requested_slot: preexisting_conditions
+  - slot_was_set:
+    - travel_interstate: true
+  - slot_was_set:
+    - requested_slot: travel_interstate
+  - active_loop: null
+  - action: utter_slot_values
+  - action: utter_coronavirus_assessment
+  # - slot_was_set:
+  #   - is_vaccinated: null
+  # - slot_was_set:
+  #   - vaccine_brand: null
+  # - slot_was_set:
+  #   - num_doses: null
+  # - slot_was_set:
+  #   - past_infection: null
+  # - slot_was_set:
+  #   - current_symptoms: null
+  # - slot_was_set:
+  #   - preexisting_conditions: null
+  # - slot_was_set:
+  #   - travel_interstate: null
+  # - slot_was_set:
+  #   - requested_slot: null
