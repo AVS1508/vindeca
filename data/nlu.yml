@@ -140,14 +140,16 @@ nlu:
     - [not](negative) [very good](happy)
     - [extremely sad](sad)
     - [so sad](sad)
+- intent: coronavirus_information
+  examples: |
+    - I want some [details](information) about [COVID-19](coronavirus)
+    - Can I get some [covid19](coronavirus) [info](information)?
+    - What is the latest [Covid-19](coronavirus) [information](information)?
+    - Tell me the [particulars](information) regarding [COVID-19](coronavirus)?
+    - Provide me with some [knowledge](information) concerning [covid19](coronavirus)
 - intent: coronavirus_statistics
   examples: |
     - I want to know more about [covid19](coronavirus).
-    - What is [Covid-19](coronavirus)?
-    - What is [coronavirus](coronavirus)?
-    - What is [corona virus](coronavirus)?
-    - Can I get some [covid19](coronavirus) [info](statistics)?
-    - What is the latest [Covid-19](coronavirus) [information](statistics)?
     - Can I get some [Covid-19](coronavirus) [data](statistics)?
     - Tell me some important [Covid-19](coronavirus) [stats](statistics).
     - Give me the recent [Covid-19](coronavirus) [statistics](statistics)
@@ -391,17 +393,19 @@ nlu:
 - synonym: statistics
   examples: |
     - stats
-    - knowledge
     - facts
     - figures
-    - details
-    - deets
     - data
     - evidence
     - report
     - documentation
+- synonym: information
+  examples: |
     - info
-    - information
+    - details
+    - deets
+    - knowledge
+    - particulars
 - synonym: vaccine
   examples: |
     - vaccination

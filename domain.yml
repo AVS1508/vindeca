@@ -17,6 +17,8 @@ intents:
     use_entities: true
 - mood_unhappy:
     use_entities: true
+- coronavirus_information:
+    use_entities: true
 - coronavirus_statistics:
     use_entities: true
 - coronavirus_guidance:
@@ -41,6 +43,7 @@ entities:
 - happy
 - sad
 - coronavirus
+- information
 - statistics
 - guidance
 - vaccine
@@ -166,7 +169,7 @@ responses:
   - quick_replies:
     - payload: /coronavirus_assessment
       title: COVID-19 Self-Assessment
-    - payload: /coronavirus_guidance
+    - payload: /coronavirus_information
       title: COVID-19 Information
     - payload: /chitchat
       title: Chitchat

@@ -22,6 +22,11 @@ rules:
   - intent: chitchat
   - action: utter_chitchat
 
+- rule: Respond to the request for information about COVID-19
+  steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
+
 - rule: Activate the COVID-19 assessment form
   steps:
   - intent: coronavirus_assessment
