@@ -169,6 +169,109 @@ responses:
   - text: I resolved your query, right? I'll be happy to become better and more informative.
   - text: What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner.
   utter_coronavirus_assessment:
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '2'
+    text: Your infection risk is LOW as you are fully vaccinated. We still recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '1'
+    - name: past_infection
+      type: slot
+      value: false
+    - name: current_symptoms
+      type: slot
+      value: false
+    - name: preexisting_conditions
+      type: slot
+      value: false
+    - name: travel_interstate
+      type: slot
+      value: false
+    text: Your infection risk is LOW as you are partially vaccinated with no other adverse factors. We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '1'
+    - name: past_infection
+      type: slot
+      value: true
+    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '1'
+    - name: current_symptoms
+      type: slot
+      value: true
+    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '1'
+    - name: preexisting_conditions
+      type: slot
+      value: true
+    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '1'
+    - name: travel_interstate
+      type: slot
+      value: true
+    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '0'
+    - name: past_infection
+      type: slot
+      value: false
+    - name: current_symptoms
+      type: slot
+      value: false
+    - name: preexisting_conditions
+      type: slot
+      value: false
+    - name: travel_interstate
+      type: slot
+      value: false
+    text: Your infection risk is MEDIUM as you are not vaccinated but no other adverse factors. We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '0'
+    - name: past_infection
+      type: slot
+      value: true
+    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '0'
+    - name: current_symptoms
+      type: slot
+      value: true
+    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '0'
+    - name: preexisting_conditions
+      type: slot
+      value: true
+    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
+  - condition:
+    - name: num_doses
+      type: slot
+      value: '0'
+    - name: travel_interstate
+      type: slot
+      value: true
+    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - text: I am still learning how to process this data to estimate your risk levels! Till then, kindly maintain social distancing in public and wear masks extensively in order to protect everyone.
   utter_slot_values:
   - text: |-
@@ -240,7 +343,8 @@ responses:
     - payload: 'false'
       title: No
     text: Have you travelled in the past 14 days to any state other than where you currently reside?
-actions: []
+actions:
+- action_reset_slots
 forms:
   form_coronavirus_assessment:
     required_slots:
