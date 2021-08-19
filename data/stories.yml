@@ -132,19 +132,123 @@ stories:
   - active_loop: null
   - action: utter_slot_values
   - action: utter_coronavirus_assessment
-  # - slot_was_set:
-  #   - is_vaccinated: null
-  # - slot_was_set:
-  #   - vaccine_brand: null
-  # - slot_was_set:
-  #   - num_doses: null
-  # - slot_was_set:
-  #   - past_infection: null
-  # - slot_was_set:
-  #   - current_symptoms: null
-  # - slot_was_set:
-  #   - preexisting_conditions: null
-  # - slot_was_set:
-  #   - travel_interstate: null
-  # - slot_was_set:
-  #   - requested_slot: null
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_slots
+# - story: Story from Conversation ID f41a022b5d7a4f5cabf2d251213cc270
+#   steps:
+#   - intent: coronavirus_assessment
+#     entities:
+#     - coronavirus: coronavirus
+#   - action: form_coronavirus_assessment
+#   - active_loop: form_coronavirus_assessment
+#   - slot_was_set:
+#     - requested_slot: current_symptoms
+#   - slot_was_set:
+#     - current_symptoms: 'false'
+#   - slot_was_set:
+#     - requested_slot: is_vaccinated
+#   - slot_was_set:
+#     - is_vaccinated: 'true'
+#   - slot_was_set:
+#     - requested_slot: num_doses
+#   - slot_was_set:
+#     - num_doses: '1'
+#   - slot_was_set:
+#     - requested_slot: past_infection
+#   - slot_was_set:
+#     - past_infection: 'false'
+#   - slot_was_set:
+#     - requested_slot: preexisting_conditions
+#   - slot_was_set:
+#     - preexisting_conditions: 'false'
+#   - slot_was_set:
+#     - requested_slot: travel_interstate
+#   - slot_was_set:
+#     - travel_interstate: 'false'
+#   - slot_was_set:
+#     - requested_slot: vaccine_brand
+#   - slot_was_set:
+#     - vaccine_brand: Covishield
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slot_values
+#   - action: utter_coronavirus_assessment
+#   - action: action_reset_slots
+#   - intent: coronavirus_assessment
+#     entities:
+#     - assessment: assessment
+#   - action: form_coronavirus_assessment
+#   - active_loop: form_coronavirus_assessment
+#   - slot_was_set:
+#     - requested_slot: current_symptoms
+#   - intent: affirm
+#     entities:
+#     - affirmative: 'true'
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - current_symptoms: 'true'
+#   - slot_was_set:
+#     - requested_slot: is_vaccinated
+#   - intent: nlu_fallback
+#     entities:
+#     - affirmative: 'false'
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - is_vaccinated: 'false'
+#   - slot_was_set:
+#     - requested_slot: num_doses
+#   - intent: faq
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - num_doses: '0'
+#   - slot_was_set:
+#     - requested_slot: past_infection
+#   - intent: nlu_fallback
+#     entities:
+#     - affirmative: 'false'
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - past_infection: 'false'
+#   - slot_was_set:
+#     - requested_slot: preexisting_conditions
+#   - intent: nlu_fallback
+#     entities:
+#     - affirmative: 'false'
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - preexisting_conditions: 'false'
+#   - slot_was_set:
+#     - requested_slot: travel_interstate
+#   - intent: nlu_fallback
+#     entities:
+#     - affirmative: 'false'
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - travel_interstate: 'false'
+#   - slot_was_set:
+#     - requested_slot: vaccine_brand
+#   - intent: deny
+#     entities:
+#     - negative: None
+#   - action: form_coronavirus_assessment
+#   - slot_was_set:
+#     - vaccine_brand: None
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slot_values
+#   - action: utter_coronavirus_assessment
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_reset_slots
+#   - intent: coronavirus_assessment
+#     entities:
+#     - assessment: assessment
+#   - action: form_coronavirus_assessment
+#   - active_loop: form_coronavirus_assessment
+#   - slot_was_set:
+#     - requested_slot: current_symptoms
