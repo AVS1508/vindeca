@@ -267,6 +267,7 @@ nlu:
     - How much [risk](assessment) am I at of contracting [COVID-19](coronavirus)?
     - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [questionnaire](assessment)?
     - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [question](assessment)?
+    - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"}
 - synonym: coronavirus
   examples: |
     - COVID-19
