@@ -35,3 +35,6 @@ rules:
   - active_loop: null
   - action: utter_slot_values
   - action: utter_coronavirus_assessment
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_slots
