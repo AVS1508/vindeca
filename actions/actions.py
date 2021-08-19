@@ -5,11 +5,12 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 
-# from typing import Any, Text, Dict, List, Union
+from typing import Any, Text, Dict, List, Union
 
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
 # from rasa_sdk.forms import FormAction
+from rasa_sdk.events import AllSlotsReset
 
 # class FormCoronavirusAssessment(FormAction):
 #     def __init__(self):
@@ -36,3 +37,10 @@
 #     def submit (self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
 #         return []
+
+class ActionResetSlots(Action):
+    def name(self) -> Text:
+        return "action_reset_slots"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text,Any]]:
+        return [AllSlotsReset()]
