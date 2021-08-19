@@ -29,13 +29,19 @@ nlu:
     - hey
     - hello
     - hi
+    - howdy
+    - welcome
+    - bonjour
+    - buenas nochas
+    - buenos dias
+    - good day
     - what's up
     - wassup
     - hello there
     - good morning
     - good evening
     - morning
-    - moin
+    - is anyone available to chat?
     - hey there
     - let's go
     - hey dude
@@ -48,9 +54,14 @@ nlu:
 - intent: goodbye
   examples: |
     - good afternoon
-    - cu
-    - good by
-    - cee you later
+    - adieu
+    - adios
+    - arrivederci
+    - bye-bye
+    - cheerio
+    - sayonara
+    - so long
+    - good bye
     - good night
     - bye
     - goodbye
@@ -262,6 +273,8 @@ nlu:
     - [COVID-19](coronavirus) [check](assessment)
     - [COVID-19](coronavirus) [risk](assessment)
     - [COVID-19](coronavirus) [questionnaire](assessment)
+    - Can I get [aarogya setu](assessment) feature?
+    - Can I get [aarogya](assessment) feature?
     - Can I get a [COVID-19](coronavirus) [assessment](assessment)?
     - I want to [check](assessment) whether I have [COVID-19](coronavirus)?
     - How much [risk](assessment) am I at of contracting [COVID-19](coronavirus)?
@@ -274,11 +287,28 @@ nlu:
     - covid19
     - covid-19
     - corona virus
+    - coronavirus
+    - the virus
+    - COVID disease
+    - corona
     - SARS-CoV-2
     - severe acute respiratory syndrome coronavirus 2
 - synonym: guidance
   examples: |
     - precautions
+    - advice
+    - advising
+    - counsel
+    - counselling
+    - directions
+    - instruction
+    - instructing
+    - suggestions
+    - suggesting
+    - pointers
+    - hints
+    - supervise
+    - supervision
     - guidelines
     - steps
     - help
@@ -294,11 +324,32 @@ nlu:
     - correct
     - right
     - really
+    - all right
+    - alright
+    - very well
+    - by all means
+    - certainly
+    - absolutely
+    - indeed
+    - agreed
+    - roger
     - aye
+    - aye aye
+    - yah
+    - okay
+    - surely
     - like
     - of course
 - synonym: symptoms
   examples: |
+    - indications
+    - manifestations
+    - indicators
+    - signs
+    - features
+    - traits
+    - marks
+    - prodrome
     - cold
     - dry cough
     - fever
@@ -328,41 +379,100 @@ nlu:
     - doctor
     - oxygen
     - oxygen cylinder
+    - testing
+    - tests
+    - intensive care unit
+    - hospital beds
+    - nurse
+    - nursing home
+    - outpatient
+    - medical
+    - medication
 - synonym: statistics
   examples: |
     - stats
-    - info
+    - knowledge
+    - facts
+    - figures
+    - details
+    - deets
     - data
+    - evidence
+    - report
+    - documentation
+    - info
     - information
 - synonym: vaccine
   examples: |
     - vaccination
+    - vaccinating
+    - needle
     - jab
+    - injecting
     - injection
     - shot
+    - immunizing
     - immunization
     - inoculation
+    - inoculating
     - booster
     - dose
     - first dose
     - second dose
 - synonym: quarantine
   examples: |
+    - quarantining
+    - isolate
     - isolation
+    - isolating
+    - contain
     - containment
+    - containing
+    - segregate
     - segregation
+    - segregating
+    - social distance
     - social distancing
     - stay at home
+    - staying indoors
+    - secluded
+    - secluding
     - seclusion
+    - contactless
     - lack of contact
+    - separate
+    - separating
     - separation
+    - sequester
+    - sequestering
+    - distance
+    - distancing
 - synonym: assessment
   examples: |
     - assess
+    - assessing
+    - self-assess
+    - self-assessment
     - risk
     - questionnaire
+    - questioning
     - question
     - check
+    - checking
+    - evaluate
+    - evaluating
+    - judge
+    - judging
+    - gauge
+    - gauging
+    - check out
+    - checking out
+    - determine
+    - determining
+    - analyze
+    - analyzing
+    - aarogya setu
+    - aarogya
 - synonym: negative
   examples: |
     - no
@@ -372,6 +482,13 @@ nlu:
     - nah
     - don't
     - no way
+    - under no circumstances
+    - by no means
+    - not at all
+    - nae
+    - not on your life
+    - naw
+    - nay
     - not
     - incorrect
     - wrong
@@ -380,6 +497,21 @@ nlu:
   examples: |
     - perfect
     - good
+    - contented
+    - content
+    - cheerful
+    - cheery
+    - merry
+    - joyful
+    - jovial
+    - jolly
+    - joking
+    - jocular
+    - gleeful
+    - carefree
+    - untroubled
+    - delighted
+    - smiling
     - great
     - amazing
     - wonderful
@@ -393,6 +525,23 @@ nlu:
     - horrible
     - disappointed
     - super sad
+    - miserable
+    - sorrowful
+    - dejected
+    - despondent
+    - disconsolate
+    - morose
+    - regretful
+    - downcast
+    - down
+    - despairing
+    - depressed
+    - out of sorts
+    - wretched
+    - melancholic
+    - woeful
+    - dismal
+    - gloomy
     - very sad
     - unhappy
     - extremely sad

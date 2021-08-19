@@ -1,12 +1,13 @@
 version: "2.0"
 
 rules:
-- rule: Respond hello anytime the user says hello
+- rule: Greet the user and present options whenever user greets chatbot
   steps:
   - intent: greet
   - action: utter_greet
+  - action: utter_usage_cases
 
-- rule: Respond goodbye anytime the user says goodbye
+- rule: Bid farewell to user whenever user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
