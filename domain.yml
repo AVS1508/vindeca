@@ -108,6 +108,13 @@ slots:
     - preexisting_conditions
     - travel_interstate
 responses:
+  utter_chitchat:
+  - quick_replies:
+    - payload: /ask_name
+      title: What is your name?
+    - payload: /ask_weather
+      title: What's the weather like today?
+    text: "I can also make some small talk. What would you like to know?"
   utter_chitchat/ask_name:
   - text: My name is Cova, short for COVID-19 Assistant.
   - text: I am COVID-19 Assistant, but sometimes I go by Cova.
@@ -116,6 +123,13 @@ responses:
   - text: Today, it is going to rain like cats and dogs, not good for sunbathing. :(
   - text: Today, it is going to be mildy cloudy, you might just get a sneak peek at the Sun. :)
   - text: Today, it is going to be sunny, and you can expect the temperatures to soar. :(
+  utter_faq:
+  - quick_replies:
+    - payload: /ask_covid_details
+      title: What is COVID-19?
+    - payload: /ask_covid_infection
+      title: How do you get infected by COVID-19?
+    text: "Here are some of the most frequently asked COVID-19 questions:"
   utter_faq/ask_covid_details:
   - text: Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
   utter_faq/ask_covid_infection:
@@ -144,6 +158,34 @@ responses:
   - text: Good bye! It was nice talking to you.
   - text: See you soon! It was truly a pleasure to converse with you.
   - text: Godspeed! I had a fun time chatting with a fun person like you.
+  utter_did_info_help:
+  - text: Was that helpful? If not, please let me know so that I can improve.
+  - text: I resolved your query, right? I'll be happy to become better and more informative.
+  - text: What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner.
+  utter_usage_cases:
+  - quick_replies:
+    - payload: /coronavirus_assessment
+      title: COVID-19 Self-Assessment
+    - payload: /coronavirus_guidance
+      title: COVID-19 Information
+    - payload: /chitchat
+      title: Chitchat
+    - payload: /faq
+      title: FAQs
+    text: What can I do for you?
+  utter_coronavirus_information:
+  - quick_replies:
+    - payload: /coronavirus_statistics
+      title: COVID-19 Statistics
+    - payload: /coronavirus_guidance
+      title: COVID-19 Guidance
+    - payload: /coronavirus_symptoms
+      title: COVID-19 Symptoms
+    - payload: /coronavirus_healthcare
+      title: COVID-19 Healthcare
+    - payload: /coronavirus_vaccine
+      title: COVID-19 Vaccine
+    text: What information would you like to receive about COVID-19?
   utter_coronavirus_statistics:
   - text: |-
       I think you are looking for COVID-19 statistics. Have a look at the Google result for the same: 
@@ -157,17 +199,9 @@ responses:
       I think you are searching symptoms of COVID-19. Find them on Google results: 
       https://www.google.com/search?q=symptoms+of+COVID+19
   utter_coronavirus_healthcare:
-  - text: |-
-      I think you might be looking for healthcare options for COVID-19 patients. Please visit the Corona Dashboard at:
-      https://coronabeds.jantasamvad.org/.
+  - text: I think you might be looking for healthcare options for COVID-19 patients. Please visit the [Corona Dashboard](https://coronabeds.jantasamvad.org/).
   utter_coronavirus_vaccine:
-  - text: |-
-      I think you want to get vaccinated for COVID-19. Visit CoWIN Portal at: 
-      https://www.cowin.gov.in/.
-  utter_did_info_help:
-  - text: Was that helpful? If not, please let me know so that I can improve.
-  - text: I resolved your query, right? I'll be happy to become better and more informative.
-  - text: What do you think of my conversation skills? I think I provided you with appropriate information in a digestible manner.
+  - text: I think you want to get vaccinated for COVID-19. Visit [CoWIN Portal](https://www.cowin.gov.in/).
   utter_coronavirus_assessment:
   - condition:
     - name: num_doses
@@ -326,7 +360,10 @@ responses:
       title: No
     text: |-
       Are you currently experiencing any of the following symptoms? 
-       Cough, Fever, Sore Throat, Chest Congestion or Runny Nose, Body ache, Difficulty in Breathing, Loss of senses of smell and taste, Pink eyes, Hearing impairment, Gastrointestinal symptoms
+      • Cough • Fever • Sore Throat • Chest Congestion 
+      • Runny Nose • Body Ache • Difficulty in Breathing 
+      • Loss of Smell • Loss of Taste • Pink Eyes 
+      • Hearing Impairment • Gastrointestinal Unease
   utter_ask_preexisting_conditions:
   - buttons:
     - payload: 'true'
@@ -335,7 +372,8 @@ responses:
       title: No
     text: |-
       Do you have any of the following pre-existing conditions? 
-       Diabetes, Hypertension, Lung disease, Heart Disease, Kidney Disorder, Asthma
+      • Diabetes • Hypertension • Lung Disease 
+      • Heart Disease • Kidney Disorder • Asthma
   utter_ask_travel_interstate:
   - buttons:
     - payload: 'true'
