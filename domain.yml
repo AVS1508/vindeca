@@ -117,9 +117,9 @@ slots:
 responses:
   utter_chitchat_options:
   - quick_replies:
-    - payload: /chitchat
+    - payload: What is your name?
       title: What is your name?
-    - payload: /chitchat
+    - payload: What's the weather like today?
       title: What's the weather like today?
     text: "I can also make some small talk. What would you like to know?"
   utter_chitchat/ask_name:
@@ -132,9 +132,9 @@ responses:
   - text: Today, it is going to be sunny, and you can expect the temperatures to soar. :(
   utter_faq_options:
   - quick_replies:
-    - payload: /utter_faq
+    - payload: What is COVID-19?
       title: What is COVID-19?
-    - payload: /utter_faq
+    - payload: How do you get infected by COVID-19?
       title: How do you get infected by COVID-19?
     text: "Here are some of the most frequently asked COVID-19 questions:"
   utter_faq/ask_covid_details:
@@ -175,9 +175,9 @@ responses:
       title: COVID-19 Self-Assessment
     - payload: /coronavirus_information
       title: COVID-19 Information
-    - payload: /chitchat
+    - payload: /chitchat_options
       title: Chitchat
-    - payload: /faq
+    - payload: /faq_options
       title: FAQs
     text: What can I do for you?
   utter_coronavirus_information:
