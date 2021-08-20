@@ -55,15 +55,14 @@ nlu:
     - hey there
     - let's go
     - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - Good morning!
+    - Good evening!
+    - Good afternoon!
     - Hey!
     - Hello
     - Hello!
 - intent: goodbye
   examples: |
-    - good afternoon
     - adieu
     - adios
     - arrivederci
