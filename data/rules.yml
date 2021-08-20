@@ -7,6 +7,11 @@ rules:
   - action: utter_greet
   - action: utter_usage_cases
 
+- rule: Respond to help queries with a general overview of features/further queries
+  steps:
+  - intent: usage_cases
+  - action: utter_usage_cases 
+
 - rule: Bid farewell to user whenever user says goodbye
   steps:
   - intent: goodbye
@@ -49,8 +54,25 @@ rules:
   steps:
   - action: form_coronavirus_assessment
   - active_loop: null
-  - action: utter_slot_values
   - action: utter_coronavirus_assessment
   - action: action_deactivate_loop
   - active_loop: null
   - action: action_reset_slots
+
+- rule: Unhappy Path for Chitchat for Assessment form
+  condition:
+  - active_loop: form_coronavirus_assessment
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: form_coronavirus_assessment
+  - active_loop: form_coronavirus_assessment
+
+- rule: Unhappy Path for FAQs for Assessment form
+  condition:
+  - active_loop: form_coronavirus_assessment
+  steps:
+  - intent: faq
+  - action: utter_faq
+  - action: form_coronavirus_assessment
+  - active_loop: form_coronavirus_assessment

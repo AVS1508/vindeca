@@ -99,6 +99,7 @@ nlu:
     - Okay
     - Yes
     - Yes, that was [helpful](guidance)!
+    - [true](affirmative)
 - intent: deny
   examples: |
     - [no](negative)
@@ -111,6 +112,13 @@ nlu:
     - [don't](negative) [like](affirmative) that
     - [no way](negative)
     - [not](negative) [really](affirmative)
+    - [false](negative)
+    - [None](negative)
+- intent: stop_form
+  examples: |
+    - Please [stop](stop) the form, I do not wish to continue
+    - I want to know something else, so [halt](stop)
+    - I changed my mind, I want to [pause](stop)
 - intent: mood_great
   examples: |
     - [perfect](happy)
@@ -149,6 +157,20 @@ nlu:
     - [not](negative) [very good](happy)
     - [extremely sad](sad)
     - [so sad](sad)
+- intent: usage_cases
+  examples: |
+    - Can you [help me](usage)?
+    - What [features](usage) do you have?
+    - What all can [you do](usage)?
+    - Please give me what [options](usage) I have!
+    - What is you [use](usage)?
+    - What are your [use](usage) cases?
+    - What are you [capable](usage) of?
+    - [help](usage)
+    - [options](usage)
+    - [features](usage)
+    - [usage](usage)
+    - [uses](usage)
 - intent: coronavirus_information
   examples: |
     - I want some [details](information) about [COVID-19](coronavirus)
@@ -156,6 +178,7 @@ nlu:
     - What is the latest [Covid-19](coronavirus) [information](information)?
     - Tell me the [particulars](information) regarding [COVID-19](coronavirus)?
     - Provide me with some [knowledge](information) concerning [covid19](coronavirus)
+    - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} [information](information)
 - intent: coronavirus_statistics
   examples: |
     - I want to know more about [covid19](coronavirus).
@@ -173,6 +196,7 @@ nlu:
     - What is the [coronavirus](coronavirus) [recovery](statistics) rate right now?
     - How many people infected with [coronavirus](coronavirus) have [recovered](statistics)?
     - Tell me about [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} please
+    - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} [statistics](statistics)
 - intent: coronavirus_guidance
   examples: |
     - How to go about [social distancing](quarantine)?
@@ -278,6 +302,8 @@ nlu:
     - How to get registered for [vaccine](vaccine) on CoWiN?
     - [Vaccines](vaccine)
     - I wanted to know more about [COVID](coronavirus) [vaccines](vaccine)
+    - Covishield
+    - 2
 - intent: coronavirus_assessment
   examples: |
     - [COVID-19](coronavirus) [assessment](assessment)
@@ -292,13 +318,14 @@ nlu:
     - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [questionnaire](assessment)?
     - I need to [assess](assessment) my [risk](assessment), can I have [COVID-19](coronavirus) [question](assessment)?
     - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"}
+    - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} Self-[Assess]{"entity": "assessment", "value": "assessment"}
+    - [assess]{"entity": "assessment", "value": "assessment"}
 - synonym: coronavirus
   examples: |
     - COVID-19
     - covid19
     - covid-19
     - corona virus
-    - coronavirus
     - the virus
     - COVID disease
     - corona
@@ -322,7 +349,6 @@ nlu:
     - supervision
     - guidelines
     - steps
-    - help
 - synonym: affirmative
   examples: |
     - Yes
@@ -330,6 +356,7 @@ nlu:
     - yeah
     - yep
     - y
+    - true
     - sure
     - definitely
     - correct
@@ -353,6 +380,8 @@ nlu:
     - of course
 - synonym: symptoms
   examples: |
+    - cold
+    - dry cough
     - indications
     - manifestations
     - indicators
@@ -361,8 +390,6 @@ nlu:
     - traits
     - marks
     - prodrome
-    - cold
-    - dry cough
     - fever
     - tired
     - bodyache
@@ -399,6 +426,51 @@ nlu:
     - outpatient
     - medical
     - medication
+- synonym: assessment
+  examples: |
+    - Assess
+    - assess
+    - assessing
+    - self-assess
+    - self-assessment
+    - risk
+    - questionnaire
+    - questioning
+    - question
+    - check
+    - checking
+    - evaluate
+    - evaluating
+    - judge
+    - judging
+    - gauge
+    - gauging
+    - check out
+    - checking out
+    - determine
+    - determining
+    - analyze
+    - analyzing
+    - aarogya setu
+    - aarogya
+- synonym: stop
+  examples: |
+    - halt
+    - pause
+    - finish
+    - stem
+    - cease
+    - deactivate
+    - shut down
+- synonym: usage
+  examples: |
+    - help
+    - use
+    - feature
+    - options
+    - capable
+    - help me
+    - you do
 - synonym: statistics
   examples: |
     - stats
@@ -460,38 +532,13 @@ nlu:
     - sequestering
     - distance
     - distancing
-- synonym: assessment
-  examples: |
-    - assess
-    - assessing
-    - self-assess
-    - self-assessment
-    - risk
-    - questionnaire
-    - questioning
-    - question
-    - check
-    - checking
-    - evaluate
-    - evaluating
-    - judge
-    - judging
-    - gauge
-    - gauging
-    - check out
-    - checking out
-    - determine
-    - determining
-    - analyze
-    - analyzing
-    - aarogya setu
-    - aarogya
 - synonym: negative
   examples: |
     - no
     - n
     - never
     - nope
+    - false
     - nah
     - don't
     - no way

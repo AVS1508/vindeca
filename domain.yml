@@ -5,7 +5,17 @@ session_config:
   session_expiration_time: 120
   carry_over_slots_to_new_session: true
 intents:
+- nlu_fallback:
+    use_entities: true
+- coronavirus_assessment:
+    use_entities: true
+- stop_form:
+    use_entities: true
 - greet:
+    use_entities: true
+- faq:
+    use_entities: true
+- chitchat:
     use_entities: true
 - goodbye:
     use_entities: true
@@ -16,6 +26,8 @@ intents:
 - mood_great:
     use_entities: true
 - mood_unhappy:
+    use_entities: true
+- usage_cases:
     use_entities: true
 - coronavirus_information:
     use_entities: true
@@ -29,39 +41,36 @@ intents:
     use_entities: true
 - coronavirus_vaccine:
     use_entities: true
-- coronavirus_assessment:
-    use_entities: true
-- nlu_fallback:
-    use_entities: true
 - chitchat_options:
     use_entities: true
 - faq_options:
     use_entities: true
-- chitchat:
-    is_retrieval_intent: true
-- faq:
-    is_retrieval_intent: true
 entities:
 - affirmative
-- negative
-- happy
-- sad
-- coronavirus
-- information
-- statistics
-- guidance
-- vaccine
-- symptoms
-- healthcare
-- quarantine
 - assessment
+- coronavirus
+- guidance
+- happy
+- healthcare
+- information
+- negative
+- quarantine
+- sad
+- statistics
+- symptoms
+- usage
+- vaccine
+- stop
 slots:
-  is_vaccinated:
-    type: rasa.shared.core.slots.BooleanSlot
+  1_is_vaccinated:
+    type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-  vaccine_brand:
+    values:
+    - 'true'
+    - 'false'
+  2_vaccine_brand:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
@@ -72,7 +81,7 @@ slots:
     - sputnik
     - other
     - none
-  num_doses:
+  3_num_doses:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
@@ -81,47 +90,59 @@ slots:
     - '0'
     - '1'
     - '2'
-  past_infection:
-    type: rasa.shared.core.slots.BooleanSlot
+  4_past_infection:
+    type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-  current_symptoms:
-    type: rasa.shared.core.slots.BooleanSlot
+    values:
+    - 'true'
+    - 'false'
+  5_current_symptoms:
+    type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-  preexisting_conditions:
-    type: rasa.shared.core.slots.BooleanSlot
+    values:
+    - 'true'
+    - 'false'
+  6_preexisting_conditions:
+    type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-  travel_interstate:
-    type: rasa.shared.core.slots.BooleanSlot
+    values:
+    - 'true'
+    - 'false'
+  7_travel_interstate:
+    type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
+    values:
+    - 'true'
+    - 'false'
   requested_slot:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
     values:
-    - is_vaccinated
-    - vaccine_brand
-    - num_doses
-    - past_infection
-    - current_symptoms
-    - preexisting_conditions
-    - travel_interstate
+    - 1_is_vaccinated
+    - 2_vaccine_brand
+    - 3_num_doses
+    - 4_past_infection
+    - 5_current_symptoms
+    - 6_preexisting_conditions
+    - 7_travel_interstate
 responses:
   utter_chitchat_options:
   - quick_replies:
     - payload: What is your name?
-      title: What is your name?
+      title: Your Name
     - payload: What's the weather like today?
-      title: What's the weather like today?
-    text: "I can also make some small talk. What would you like to know?"
+      title: Weather
+    text: I can also make some small talk. What would you like to know?
   utter_chitchat/ask_name:
   - text: My name is Cova, short for COVID-19 Assistant.
   - text: I am COVID-19 Assistant, but sometimes I go by Cova.
@@ -133,10 +154,10 @@ responses:
   utter_faq_options:
   - quick_replies:
     - payload: What is COVID-19?
-      title: What is COVID-19?
+      title: COVID-19 disease
     - payload: How do you get infected by COVID-19?
-      title: How do you get infected by COVID-19?
-    text: "Here are some of the most frequently asked COVID-19 questions:"
+      title: COVID-19 infection
+    text: 'Here are some of the most frequently asked COVID-19 questions:'
   utter_faq/ask_covid_details:
   - text: Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
   utter_faq/ask_covid_infection:
@@ -172,7 +193,7 @@ responses:
   utter_usage_cases:
   - quick_replies:
     - payload: /coronavirus_assessment
-      title: COVID-19 Self-Assessment
+      title: COVID-19 Self-Assess
     - payload: /coronavirus_information
       title: COVID-19 Information
     - payload: /chitchat_options
@@ -205,126 +226,126 @@ responses:
   - text: Looking to get vaccinated? Try to find vaccination slots on the [CoWIN Portal](https://www.cowin.gov.in).
   utter_coronavirus_assessment:
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '2'
     text: Your infection risk is LOW as you are fully vaccinated. We still recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '1'
-    - name: past_infection
+    - name: 4_past_infection
       type: slot
-      value: false
-    - name: current_symptoms
+      value: 'false'
+    - name: 5_current_symptoms
       type: slot
-      value: false
-    - name: preexisting_conditions
+      value: 'false'
+    - name: 6_preexisting_conditions
       type: slot
-      value: false
-    - name: travel_interstate
+      value: 'false'
+    - name: 7_travel_interstate
       type: slot
-      value: false
+      value: 'false'
     text: Your infection risk is LOW as you are partially vaccinated with no other adverse factors. We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '1'
-    - name: past_infection
+    - name: 4_past_infection
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '1'
-    - name: current_symptoms
+    - name: 5_current_symptoms
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '1'
-    - name: preexisting_conditions
+    - name: 6_preexisting_conditions
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '1'
-    - name: travel_interstate
+    - name: 7_travel_interstate
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '0'
-    - name: past_infection
+    - name: 4_past_infection
       type: slot
-      value: false
-    - name: current_symptoms
+      value: 'false'
+    - name: 5_current_symptoms
       type: slot
-      value: false
-    - name: preexisting_conditions
+      value: 'false'
+    - name: 6_preexisting_conditions
       type: slot
-      value: false
-    - name: travel_interstate
+      value: 'false'
+    - name: 7_travel_interstate
       type: slot
-      value: false
+      value: 'false'
     text: Your infection risk is MEDIUM as you are not vaccinated but no other adverse factors. We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '0'
-    - name: past_infection
+    - name: 4_past_infection
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '0'
-    - name: current_symptoms
+    - name: 5_current_symptoms
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '0'
-    - name: preexisting_conditions
+    - name: 6_preexisting_conditions
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - condition:
-    - name: num_doses
+    - name: 3_num_doses
       type: slot
       value: '0'
-    - name: travel_interstate
+    - name: 7_travel_interstate
       type: slot
-      value: true
+      value: 'true'
     text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
   - text: I am still learning how to process this data to estimate your risk levels! Till then, kindly maintain social distancing in public and wear masks extensively in order to protect everyone.
   utter_slot_values:
   - text: |-
-      Are you currently vaccinated? {is_vaccinated}
-      Name of vaccine you were administered: {vaccine_brand}
-      Number of vaccine doses you have received: {num_doses}
-      Have you had COVID-19 in the past 3 months or after taking the shot? {past_infection}
-      Are you currently experiencing typical symptoms?  {current_symptoms}
-      Do you have any pre-existing medical conditions that makes you immunocompromised?  {preexisting_conditions}
-      Have you travelled in the past 14 days to any state other than where you currently reside? {travel_interstate}
-  utter_ask_is_vaccinated:
+      Are you currently vaccinated? {1_is_vaccinated}
+      Name of vaccine you were administered: {2_vaccine_brand}
+      Number of vaccine doses you have received: {3_num_doses}
+      Have you had COVID-19 in the past 3 months or after taking the shot? {4_past_infection}
+      Are you currently experiencing typical symptoms?  {5_current_symptoms}
+      Do you have any pre-existing medical conditions that makes you immunocompromised?  {6_preexisting_conditions}
+      Have you travelled in the past 14 days to any state other than where you currently reside? {7_travel_interstate}
+  utter_ask_1_is_vaccinated:
   - buttons:
     - payload: 'true'
       title: Yes
     - payload: 'false'
       title: No
     text: Have you taken the vaccination for COVID-19?
-  utter_ask_vaccine_brand:
+  utter_ask_2_vaccine_brand:
   - quick_replies:
     - payload: Covaxin
       title: Covaxin
@@ -337,7 +358,7 @@ responses:
     - payload: None
       title: None
     text: Which vaccine have you taken (if you have not, choose None)?
-  utter_ask_num_doses:
+  utter_ask_3_num_doses:
   - quick_replies:
     - payload: '0'
       title: '0'
@@ -346,14 +367,14 @@ responses:
     - payload: '2'
       title: '2'
     text: How many vaccine doses have you taken?
-  utter_ask_past_infection:
+  utter_ask_4_past_infection:
   - buttons:
     - payload: 'true'
       title: Yes
     - payload: 'false'
       title: No
     text: Have you had COVID-19 in the past 3 months or after taking the shot?
-  utter_ask_current_symptoms:
+  utter_ask_5_current_symptoms:
   - buttons:
     - payload: 'true'
       title: Yes
@@ -361,11 +382,8 @@ responses:
       title: No
     text: |-
       Are you currently experiencing any of the following symptoms? 
-      • Cough • Fever • Sore Throat • Chest Congestion 
-      • Runny Nose • Body Ache • Difficulty in Breathing 
-      • Loss of Smell • Loss of Taste • Pink Eyes 
-      • Hearing Impairment • Gastrointestinal Unease
-  utter_ask_preexisting_conditions:
+      • Cough • Fever • Sore Throat • Chest Congestion • Runny Nose • Body Ache • Difficulty in Breathing • Loss of Smell • Loss of Taste • Pink Eyes • Hearing Impairment • Gastrointestinal Unease
+  utter_ask_6_preexisting_conditions:
   - buttons:
     - payload: 'true'
       title: Yes
@@ -373,32 +391,39 @@ responses:
       title: No
     text: |-
       Do you have any of the following pre-existing conditions? 
-      • Diabetes • Hypertension • Lung Disease 
-      • Heart Disease • Kidney Disorder • Asthma
-  utter_ask_travel_interstate:
+      • Diabetes • Hypertension • Lung Disease • Heart Disease • Kidney Disorder • Asthma
+  utter_ask_7_travel_interstate:
   - buttons:
     - payload: 'true'
       title: Yes
     - payload: 'false'
       title: No
     text: Have you travelled in the past 14 days to any state other than where you currently reside?
+  utter_ask_continue:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Do you want to continue with the COVID-19 self-assessment form?
 actions:
 - action_reset_slots
+- validate_form_coronavirus_assessment
 forms:
   form_coronavirus_assessment:
     required_slots:
-      current_symptoms:
+      1_is_vaccinated:
       - type: from_text
-      is_vaccinated:
+      2_vaccine_brand:
       - type: from_text
-      num_doses:
+      3_num_doses:
       - type: from_text
-      past_infection:
+      4_past_infection:
       - type: from_text
-      preexisting_conditions:
+      5_current_symptoms:
       - type: from_text
-      travel_interstate:
+      6_preexisting_conditions:
       - type: from_text
-      vaccine_brand:
+      7_travel_interstate:
       - type: from_text
 e2e_actions: []
