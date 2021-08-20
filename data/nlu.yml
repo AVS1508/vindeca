@@ -1,5 +1,10 @@
 version: "2.0"
 nlu:
+- intent: chitchat_options
+  examples: |
+    - What else do you know about?
+    - Tell me something about yourself!
+    - Can we talk about other things?
 - intent: chitchat/ask_name
   examples: |
     - Who are you?
@@ -14,6 +19,11 @@ nlu:
     - Does it look sunny outside today?
     - Oh, do you mind checking the weather for me please?
     - What is the weather forecast for today?
+- intent: faq_options
+  examples: |
+    - What are some frequently asked questions about COVID-19?
+    - What are people curious about regarding COVID-19?
+    - Tell me more about COVID-19
 - intent: faq/ask_covid_details
   examples: |
     - What is [COVID-19](coronavirus)?

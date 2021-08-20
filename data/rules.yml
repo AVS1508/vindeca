@@ -12,6 +12,16 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Respond with FAQ options when deemed appropriate
+  steps:
+  - intent: faq_options
+  - action: utter_faq_options
+
+- rule: Respond with Chitchat options when deemed appropriate
+  steps:
+  - intent: chitchat_options
+  - action: utter_chitchat_options 
+
 - rule: Respond to FAQs whenever a pre-determined question is asked
   steps:
   - intent: faq

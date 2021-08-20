@@ -1,94 +1,126 @@
 version: "2.0"
 stories:
-- story: happy path
+- story: Happy Path
   steps:
   - intent: mood_great
   - action: utter_happy
-- story: sad path 1
+- story: Unhappy Path -> Cheering successful
   steps:
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_cheering_help
   - intent: affirm
   - action: utter_happy
-- story: sad path 2
+- story: Unhappy Path -> Cheering unsuccessful
   steps:
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_cheering_help
   - intent: deny
   - action: utter_not_happy
-- story: learn coronavirus statistics satisfied
+- story: Chitchat options -> Chitchat
   steps:
+  - intent: chitchat_options
+  - action: utter_chitchat_options
+  - intent: chitchat
+  - action: utter_chitchat
+- story: FAQ options -> FAQ
+  steps:
+  - intent: faq_options
+  - action: utter_faq_options
+  - intent: faq
+  - action: utter_faq
+- story: Learn coronavirus statistics satisfied
+  steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_statistics
   - action: utter_coronavirus_statistics
   - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-- story: learn coronavirus statistics not satisfied
+- story: Learn coronavirus statistics not satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_statistics
   - action: utter_coronavirus_statistics
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-- story: learn coronavirus guidance satisfied
+- story: Learn coronavirus guidance satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_guidance
   - action: utter_coronavirus_guidance
   - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-- story: learn coronavirus guidance not satisfied
+- story: Learn coronavirus guidance not satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_guidance
   - action: utter_coronavirus_guidance
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-- story: learn coronavirus symptoms satisfied
+- story: Learn coronavirus symptoms satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_symptoms
   - action: utter_coronavirus_symptoms
   - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-- story: learn coronavirus symptoms not satisfied
+- story: Learn coronavirus symptoms not satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_symptoms
   - action: utter_coronavirus_symptoms
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-- story: learn coronavirus healthcare satisfied
+- story: Learn coronavirus healthcare satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_healthcare
   - action: utter_coronavirus_healthcare
   - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-- story: learn coronavirus healthcare not satisfied
+- story: Learn coronavirus healthcare not satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_healthcare
   - action: utter_coronavirus_healthcare
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-- story: learn coronavirus vaccine satisfied
+- story: Learn coronavirus vaccine satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_vaccine
   - action: utter_coronavirus_vaccine
   - action: utter_did_info_help
   - intent: affirm
   - action: utter_happy
-- story: learn coronavirus vaccine not satisfied
+- story: Learn coronavirus vaccine not satisfied
   steps:
+  - intent: coronavirus_information
+  - action: utter_coronavirus_information
   - intent: coronavirus_vaccine
   - action: utter_coronavirus_vaccine
   - action: utter_did_info_help
   - intent: deny
   - action: utter_not_happy
-- story: assess coronavirus risk to user comprehension
+- story: Assess coronavirus risk to user comprehension
   steps:
   - intent: coronavirus_assessment
   - action: form_coronavirus_assessment
