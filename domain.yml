@@ -33,10 +33,14 @@ intents:
     use_entities: true
 - nlu_fallback:
     use_entities: true
+- chitchat_options:
+    use_entities: true
+- faq_options:
+    use_entities: true
 - chitchat:
-    use_entities: true
+    is_retrieval_intent: true
 - faq:
-    use_entities: true
+    is_retrieval_intent: true
 entities:
 - affirmative
 - negative
@@ -111,11 +115,11 @@ slots:
     - preexisting_conditions
     - travel_interstate
 responses:
-  utter_chitchat:
+  utter_chitchat_options:
   - quick_replies:
-    - payload: /ask_name
+    - payload: /chitchat
       title: What is your name?
-    - payload: /ask_weather
+    - payload: /chitchat
       title: What's the weather like today?
     text: "I can also make some small talk. What would you like to know?"
   utter_chitchat/ask_name:
@@ -126,11 +130,11 @@ responses:
   - text: Today, it is going to rain like cats and dogs, not good for sunbathing. :(
   - text: Today, it is going to be mildy cloudy, you might just get a sneak peek at the Sun. :)
   - text: Today, it is going to be sunny, and you can expect the temperatures to soar. :(
-  utter_faq:
+  utter_faq_options:
   - quick_replies:
-    - payload: /ask_covid_details
+    - payload: /utter_faq
       title: What is COVID-19?
-    - payload: /ask_covid_infection
+    - payload: /utter_faq
       title: How do you get infected by COVID-19?
     text: "Here are some of the most frequently asked COVID-19 questions:"
   utter_faq/ask_covid_details:
@@ -138,9 +142,9 @@ responses:
   utter_faq/ask_covid_infection:
   - text: The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces. You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth.
   utter_greet:
-  - text: Hey! How can I help you?
-  - text: Hello! May I be of any assistance?
-  - text: Greetings! It's a pleasure to talk to you, now, what can I do for you?
+  - text: Hey! I am here to help you.
+  - text: Hello! I hope I can be of assistance.
+  - text: Greetings! It's a pleasure to talk to you.
   utter_cheer_up:
   - text: "How about I tell you a joke: 'Why do we tell actors to break a leg? ...because every play has a cast.' ;D"
   - text: "Maybe some comedy will help you: 'I can recommend a really good restaurant called Karma. There is no menu, you get what you deserve.' ;D"
