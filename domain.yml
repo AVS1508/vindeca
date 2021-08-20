@@ -194,21 +194,15 @@ responses:
       title: COVID-19 Vaccine
     text: What information would you like to receive about COVID-19?
   utter_coronavirus_statistics:
-  - text: |-
-      I think you are looking for COVID-19 statistics. Have a look at the Google result for the same: 
-      https://www.google.com/search?q=coronavirus+stats
+  - text: Here are the latest [COVID-19 statistics](https://www.google.com/search?q=coronavirus+stats) for your information.
   utter_coronavirus_guidance:
-  - text: |-
-      I think you need some guidance on COVID-19. Find helpful advice on Google results: 
-      https://www.google.com/search?q=covid+19+precautions
+  - text: These are the latest [guidelines for COVID-19](https://www.google.com/search?q=covid+19+precautions), follow them diligently to minimize your risk of infection.
   utter_coronavirus_symptoms:
-  - text: |-
-      I think you are searching symptoms of COVID-19. Find them on Google results: 
-      https://www.google.com/search?q=symptoms+of+COVID+19
+  - text: Take a look at some common [symptoms of COVID-19](https://www.google.com/search?q=symptoms+of+COVID+19) for greater awareness.
   utter_coronavirus_healthcare:
-  - text: I think you might be looking for healthcare options for COVID-19 patients. Please visit the [Corona Dashboard](https://coronabeds.jantasamvad.org/).
+  - text: Please go through these [healthcare options for COVID-19](https://coronabeds.jantasamvad.org) patients, it will be really helpful!
   utter_coronavirus_vaccine:
-  - text: I think you want to get vaccinated for COVID-19. Visit [CoWIN Portal](https://www.cowin.gov.in/).
+  - text: Looking to get vaccinated? Try to find vaccination slots on the [CoWIN Portal](https://www.cowin.gov.in).
   utter_coronavirus_assessment:
   - condition:
     - name: num_doses
