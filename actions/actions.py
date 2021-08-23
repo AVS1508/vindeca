@@ -45,6 +45,27 @@ class ActionResetSlots(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text,Any]]:
         return [AllSlotsReset()]
 
+class UtterCoronavirusAssessment(Action):
+    def name(self) -> Text:
+        return "explain_coronavirus_assessment"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text,Any]]:
+        if tracker.slots.get("3_num_doses", None) == '2':
+            dispatcher.utter_message("Your infection risk is LOW as you are fully vaccinated. We still recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus!")
+        elif tracker.slots.get("3_num_doses", None) == '1':
+            if not (tracker.slots.get("4_past_infection", None) or tracker.slots.get("5_current_symptoms", None) or tracker.slots.get("6_preexisting_conditions", None) or tracker.slots.get("7_travel_interstate", None)):
+                dispatcher.utter_message("Your infection risk is LOW as you are partially vaccinated with no other adverse factors. We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!")
+            else:
+                dispatcher.utter_message("Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!")
+        elif tracker.slots.get("3_num_doses", None) == '0':
+            if not (tracker.slots.get("4_past_infection", None) or tracker.slots.get("5_current_symptoms", None) or tracker.slots.get("6_preexisting_conditions", None) or tracker.slots.get("7_travel_interstate", None)):
+                dispatcher.utter_message("Your infection risk is MEDIUM as you are not vaccinated but no other adverse factors. We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!")
+            else:
+                dispatcher.utter_message("Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!")
+        else:
+            dispatcher.utter_message("I am still learning how to process this data to estimate your risk levels! Till then, kindly maintain social distancing in public and wear masks extensively in order to protect everyone.")
+        return []
+
 class ValidateForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_form_coronavirus_assessment"
