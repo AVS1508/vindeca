@@ -7,15 +7,15 @@ session_config:
 intents:
 - nlu_fallback:
     use_entities: true
-- coronavirus_assessment:
+- chitchat:
     use_entities: true
-- stop_form:
-    use_entities: true
-- greet:
+- chitchat_options:
     use_entities: true
 - faq:
     use_entities: true
-- chitchat:
+- faq_options:
+    use_entities: true
+- greet:
     use_entities: true
 - goodbye:
     use_entities: true
@@ -29,6 +29,10 @@ intents:
     use_entities: true
 - usage_cases:
     use_entities: true
+- coronavirus_assessment:
+    use_entities: true
+- stop_form:
+    use_entities: true
 - coronavirus_information:
     use_entities: true
 - coronavirus_statistics:
@@ -41,26 +45,22 @@ intents:
     use_entities: true
 - coronavirus_vaccine:
     use_entities: true
-- chitchat_options:
-    use_entities: true
-- faq_options:
-    use_entities: true
 entities:
 - affirmative
-- assessment
-- coronavirus
-- guidance
-- happy
-- healthcare
-- information
 - negative
-- quarantine
+- happy
 - sad
-- statistics
-- symptoms
 - usage
-- vaccine
+- coronavirus
+- assessment
 - stop
+- information
+- statistics
+- guidance
+- symptoms
+- healthcare
+- quarantine
+- vaccine
 slots:
   1_is_vaccinated:
     type: rasa.shared.core.slots.BooleanSlot
@@ -73,11 +73,11 @@ slots:
     auto_fill: true
     influence_conversation: true
     values:
-    - covaxin
-    - covishield
-    - sputnik
-    - other
-    - none
+    - 'Covaxin'
+    - 'Covishield'
+    - 'Sputnik'
+    - 'Other'
+    - 'None'
   3_num_doses:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
@@ -155,6 +155,10 @@ responses:
   - text: Hey! I am here to help you.
   - text: Hello! I hope I can be of assistance.
   - text: Greetings! It's a pleasure to talk to you.
+  utter_goodbye:
+  - text: Good bye! It was nice talking to you.
+  - text: See you soon! It was truly a pleasure to converse with you.
+  - text: Godspeed! I had a fun time chatting with a fun person like you.
   utter_cheer_up:
   - text: "How about I tell you a joke: 'Why do we tell actors to break a leg? ...because every play has a cast.' ;D"
   - text: "Maybe some comedy will help you: 'I can recommend a really good restaurant called Karma. There is no menu, you get what you deserve.' ;D"
@@ -171,10 +175,6 @@ responses:
   - text: Oh, sorry then! I will try to be smarter in the future. :)
   - text: I hope I can make you feel better soon, I will try to learn more. :)
   - text: It's sad to see you unhappy, please let me know what I can do to turn that frown upside down. :)
-  utter_goodbye:
-  - text: Good bye! It was nice talking to you.
-  - text: See you soon! It was truly a pleasure to converse with you.
-  - text: Godspeed! I had a fun time chatting with a fun person like you.
   utter_did_info_help:
   - text: Was that helpful? If not, please let me know so that I can improve.
   - text: I resolved your query, right? I'll be happy to become better and more informative.
@@ -247,15 +247,15 @@ responses:
     text: Have you taken the vaccination for COVID-19?
   utter_ask_2_vaccine_brand:
   - quick_replies:
-    - payload: Covaxin
+    - payload: 'Covaxin'
       title: Covaxin
-    - payload: Covishield
+    - payload: 'Covishield'
       title: Covishield
-    - payload: Sputnik
+    - payload: 'Sputnik'
       title: Sputnik
-    - payload: Other
+    - payload: 'Other'
       title: Other
-    - payload: None
+    - payload: 'None'
       title: None
     text: Which vaccine have you taken (if you have not, choose None)?
   utter_ask_3_num_doses:
@@ -266,7 +266,7 @@ responses:
       title: '1'
     - payload: '2'
       title: '2'
-    text: How many vaccine doses have you taken?
+    text: How many vaccine dose(s) have you taken?
   utter_ask_4_past_infection:
   - buttons:
     - payload: 'true'
