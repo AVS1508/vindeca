@@ -154,7 +154,7 @@ stories:
   - slot_was_set:
     - requested_slot: 7_travel_interstate
   - active_loop: null
-  - action: utter_coronavirus_assessment
+  - action: explain_coronavirus_assessment
   - action: action_deactivate_loop
   - active_loop: null
   - action: action_reset_slots
