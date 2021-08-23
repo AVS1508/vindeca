@@ -63,13 +63,10 @@ entities:
 - stop
 slots:
   1_is_vaccinated:
-    type: rasa.shared.core.slots.CategoricalSlot
+    type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-    values:
-    - 'true'
-    - 'false'
   2_vaccine_brand:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
@@ -91,37 +88,25 @@ slots:
     - '1'
     - '2'
   4_past_infection:
-    type: rasa.shared.core.slots.CategoricalSlot
+    type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-    values:
-    - 'true'
-    - 'false'
   5_current_symptoms:
-    type: rasa.shared.core.slots.CategoricalSlot
+    type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-    values:
-    - 'true'
-    - 'false'
   6_preexisting_conditions:
-    type: rasa.shared.core.slots.CategoricalSlot
+    type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-    values:
-    - 'true'
-    - 'false'
   7_travel_interstate:
-    type: rasa.shared.core.slots.CategoricalSlot
+    type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
     auto_fill: true
     influence_conversation: true
-    values:
-    - 'true'
-    - 'false'
   requested_slot:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
@@ -215,129 +200,25 @@ responses:
       title: COVID-19 Vaccine
     text: What information would you like to receive about COVID-19?
   utter_coronavirus_statistics:
-  - text: Here are the latest [COVID-19 statistics](https://www.google.com/search?q=coronavirus+stats) for your information.
+  - text: The latest COVID-19 statistics are available at https://www.worldometers.info/coronavirus for your information.
+  - text: Please go to https://www.worldometers.info/coronavirus to find the updated COVID-19 statistics!
+  - text: Looking for COVID-19 statistics? Find the most recent COVID-19 statistics at https://www.worldometers.info/coronavirus.
   utter_coronavirus_guidance:
-  - text: These are the latest [guidelines for COVID-19](https://www.google.com/search?q=covid+19+precautions), follow them diligently to minimize your risk of infection.
+  - text: The latest guidelines for COVID-19 are available at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public, follow them diligently to minimize your risk of infection.
+  - text: Please go to https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public for the latest guidelines for COVID-19.
+  - text: Looking for the latest guidelines for COVID-19? Find the updated guidelines at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public.
   utter_coronavirus_symptoms:
-  - text: Take a look at some common [symptoms of COVID-19](https://www.google.com/search?q=symptoms+of+COVID+19) for greater awareness.
+  - text: The list of common symptoms of COVID-19 are available at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html for greater awareness.
+  - text: Please go to https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html to look at some common symptoms of COVID-19.
+  - text: Looking for the common symptoms of COVID-19? Find a comprehensive list at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html.
   utter_coronavirus_healthcare:
-  - text: Please go through these [healthcare options for COVID-19](https://coronabeds.jantasamvad.org) patients, it will be really helpful!
+  - text: The updated healthcare options for COVID-19 patients are available at https://coronabeds.jantasamvad.org, it will be really helpful!
+  - text: Please go to https://coronabeds.jantasamvad.org to view the most reliable healthcare options for COVID-19 patients.
+  - text: Looking for updated healthcare options for COVID-19 patients? Find a list of reliable healthcare facilities at https://coronabeds.jantasamvad.org.
   utter_coronavirus_vaccine:
-  - text: Looking to get vaccinated? Try to find vaccination slots on the [CoWIN Portal](https://www.cowin.gov.in).
-  utter_coronavirus_assessment:
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '2'
-    text: Your infection risk is LOW as you are fully vaccinated. We still recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '1'
-    - name: 4_past_infection
-      type: slot
-      value: 'false'
-    - name: 5_current_symptoms
-      type: slot
-      value: 'false'
-    - name: 6_preexisting_conditions
-      type: slot
-      value: 'false'
-    - name: 7_travel_interstate
-      type: slot
-      value: 'false'
-    text: Your infection risk is LOW as you are partially vaccinated with no other adverse factors. We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '1'
-    - name: 4_past_infection
-      type: slot
-      value: 'true'
-    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '1'
-    - name: 5_current_symptoms
-      type: slot
-      value: 'true'
-    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '1'
-    - name: 6_preexisting_conditions
-      type: slot
-      value: 'true'
-    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '1'
-    - name: 7_travel_interstate
-      type: slot
-      value: 'true'
-    text: Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '0'
-    - name: 4_past_infection
-      type: slot
-      value: 'false'
-    - name: 5_current_symptoms
-      type: slot
-      value: 'false'
-    - name: 6_preexisting_conditions
-      type: slot
-      value: 'false'
-    - name: 7_travel_interstate
-      type: slot
-      value: 'false'
-    text: Your infection risk is MEDIUM as you are not vaccinated but no other adverse factors. We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '0'
-    - name: 4_past_infection
-      type: slot
-      value: 'true'
-    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '0'
-    - name: 5_current_symptoms
-      type: slot
-      value: 'true'
-    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '0'
-    - name: 6_preexisting_conditions
-      type: slot
-      value: 'true'
-    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
-  - condition:
-    - name: 3_num_doses
-      type: slot
-      value: '0'
-    - name: 7_travel_interstate
-      type: slot
-      value: 'true'
-    text: Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!
-  - text: I am still learning how to process this data to estimate your risk levels! Till then, kindly maintain social distancing in public and wear masks extensively in order to protect everyone.
-  utter_slot_values:
-  - text: |-
-      Are you currently vaccinated? {1_is_vaccinated}
-      Name of vaccine you were administered: {2_vaccine_brand}
-      Number of vaccine doses you have received: {3_num_doses}
-      Have you had COVID-19 in the past 3 months or after taking the shot? {4_past_infection}
-      Are you currently experiencing typical symptoms?  {5_current_symptoms}
-      Do you have any pre-existing medical conditions that makes you immunocompromised?  {6_preexisting_conditions}
-      Have you travelled in the past 14 days to any state other than where you currently reside? {7_travel_interstate}
+  - text: The latest COVID-19 vaccines are available at https://www.cowin.gov.in, for your awareness.
+  - text: Please go to https://www.cowin.gov.in to get a slot for receiving the COVID-19 vaccination.
+  - text: Looking to get vaccinated? Find the most reliable COVID-19 vaccination slots at https://www.cowin.gov.in.
   utter_ask_1_is_vaccinated:
   - buttons:
     - payload: 'true'
@@ -408,6 +289,7 @@ responses:
     text: Do you want to continue with the COVID-19 self-assessment form?
 actions:
 - action_reset_slots
+- explain_coronavirus_assessment
 - validate_form_coronavirus_assessment
 forms:
   form_coronavirus_assessment:
