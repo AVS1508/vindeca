@@ -128,6 +128,8 @@ responses:
     - payload: What's the weather like today?
       title: Weather
     text: I can also make some small talk. What would you like to know?
+  utter_chitchat:
+  - text: say default 
   utter_chitchat/ask_name:
   - text: My name is Cova, short for COVID-19 Assistant.
   - text: I am COVID-19 Assistant, but sometimes I go by Cova.
@@ -143,6 +145,8 @@ responses:
     - payload: How do you get infected by COVID-19?
       title: COVID-19 infection
     text: 'Here are some of the most frequently asked COVID-19 questions:'
+  utter_faq:
+  - text: say default
   utter_faq/ask_covid_details:
   - text: Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
   utter_faq/ask_covid_infection:
@@ -303,6 +307,8 @@ responses:
       title: No
     text: Do you want to continue with the COVID-19 self-assessment form?
 actions:
+- utter_faq
+- utter_chitchat
 - action_reset_slots
 - explain_coronavirus_assessment
 - validate_form_coronavirus_assessment
