@@ -53,12 +53,12 @@ class UtterCoronavirusAssessment(Action):
         if tracker.slots.get("3_num_doses", None) == '2':
             dispatcher.utter_message("Your infection risk is LOW as you are fully vaccinated. We still recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus!")
         elif tracker.slots.get("3_num_doses", None) == '1':
-            if not (tracker.slots.get("4_past_infection", None) or tracker.slots.get("5_current_symptoms", None) or tracker.slots.get("6_preexisting_conditions", None) or tracker.slots.get("7_travel_interstate", None)):
+            if not (tracker.slots.get("4_past_infection", None) == "true" or tracker.slots.get("5_current_symptoms", None) == "true" or tracker.slots.get("6_preexisting_conditions", None) == "true" or tracker.slots.get("7_travel_interstate", None) == "true"):
                 dispatcher.utter_message("Your infection risk is LOW as you are partially vaccinated with no other adverse factors. We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!")
             else:
                 dispatcher.utter_message("Your infection risk is MEDIUM as you are partially vaccinated with some adverse factor(s). We recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and receive your 2nd dose at the earliest!")
         elif tracker.slots.get("3_num_doses", None) == '0':
-            if not (tracker.slots.get("4_past_infection", None) or tracker.slots.get("5_current_symptoms", None) or tracker.slots.get("6_preexisting_conditions", None) or tracker.slots.get("7_travel_interstate", None)):
+            if not (tracker.slots.get("4_past_infection", None) == "true" or tracker.slots.get("5_current_symptoms", None) == "true" or tracker.slots.get("6_preexisting_conditions", None) == "true" or tracker.slots.get("7_travel_interstate", None) == "true"):
                 dispatcher.utter_message("Your infection risk is MEDIUM as you are not vaccinated but no other adverse factors. We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!")
             else:
                 dispatcher.utter_message("Your infection risk is HIGH as you are not vaccinated and have other adverse factor(s). We strictly recommend that you stay at home to avoid any chance of exposure to the Novel Coronavirus, and get started with your vaccinations soon!")
