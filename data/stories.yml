@@ -156,6 +156,8 @@ stories:
   - active_loop: null
   - action: explain_coronavirus_assessment
   - action: action_deactivate_loop
+  - slot_was_set:
+    - requested_slot: None
   - active_loop: null
   - action: action_reset_slots
 
@@ -168,6 +170,8 @@ stories:
   - action: utter_ask_continue
   - intent: deny
   - action: action_deactivate_loop
+  - slot_was_set:
+    - requested_slot: None
   - active_loop: null
 
 - story: User interrupts the coronavirus assessment form but wants to continue
