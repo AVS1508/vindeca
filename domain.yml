@@ -73,11 +73,11 @@ slots:
     auto_fill: true
     influence_conversation: true
     values:
-    - 'Covaxin'
-    - 'Covishield'
-    - 'Sputnik'
-    - 'Other'
-    - 'None'
+    - covaxin
+    - covishield
+    - sputnik
+    - other
+    - none
   3_num_doses:
     type: rasa.shared.core.slots.CategoricalSlot
     initial_value: null
@@ -129,7 +129,7 @@ responses:
       title: Weather
     text: I can also make some small talk. What would you like to know?
   utter_chitchat:
-  - text: say default 
+  - text: say default
   utter_chitchat/ask_name:
   - text: My name is Cova, short for COVID-19 Assistant.
   - text: I am COVID-19 Assistant, but sometimes I go by Cova.
@@ -204,40 +204,40 @@ responses:
       title: COVID-19 Vaccine
     text: What information would you like to receive about COVID-19?
   utter_coronavirus_statistics:
-  - text: The latest COVID-19 statistics are available at https://www.worldometers.info/coronavirus for your information.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
-  - text: Please go to https://www.worldometers.info/coronavirus to find the updated COVID-19 statistics!
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
-  - text: Looking for COVID-19 statistics? Find the most recent COVID-19 statistics at https://www.worldometers.info/coronavirus.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
+    text: The latest COVID-19 statistics are available at https://www.worldometers.info/coronavirus for your information.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
+    text: Please go to https://www.worldometers.info/coronavirus to find the updated COVID-19 statistics!
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Statistics.png
+    text: Looking for COVID-19 statistics? Find the most recent COVID-19 statistics at https://www.worldometers.info/coronavirus.
   utter_coronavirus_guidance:
-  - text: The latest guidelines for COVID-19 are available at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public, follow them diligently to minimize your risk of infection.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
-  - text: Please go to https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public for the latest guidelines for COVID-19.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
-  - text: Looking for the latest guidelines for COVID-19? Find the updated guidelines at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
+    text: The latest guidelines for COVID-19 are available at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public, follow them diligently to minimize your risk of infection.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
+    text: Please go to https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public for the latest guidelines for COVID-19.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Guidance.png
+    text: Looking for the latest guidelines for COVID-19? Find the updated guidelines at https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public.
   utter_coronavirus_symptoms:
-  - text: The list of common symptoms of COVID-19 are available at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html for greater awareness.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
-  - text: Please go to https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html to look at some common symptoms of COVID-19.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
-  - text: Looking for the common symptoms of COVID-19? Find a comprehensive list at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
+    text: The list of common symptoms of COVID-19 are available at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html for greater awareness.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
+    text: Please go to https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html to look at some common symptoms of COVID-19.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Symptoms.png
+    text: Looking for the common symptoms of COVID-19? Find a comprehensive list at https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html.
   utter_coronavirus_healthcare:
-  - text: The updated healthcare options for COVID-19 patients are available at https://coronabeds.jantasamvad.org, it will be really helpful!
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
-  - text: Please go to https://coronabeds.jantasamvad.org to view the most reliable healthcare options for COVID-19 patients.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
-  - text: Looking for updated healthcare options for COVID-19 patients? Find a list of reliable healthcare facilities at https://coronabeds.jantasamvad.org.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
+    text: The updated healthcare options for COVID-19 patients are available at https://coronabeds.jantasamvad.org, it will be really helpful!
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
+    text: Please go to https://coronabeds.jantasamvad.org to view the most reliable healthcare options for COVID-19 patients.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Healthcare.png
+    text: Looking for updated healthcare options for COVID-19 patients? Find a list of reliable healthcare facilities at https://coronabeds.jantasamvad.org.
   utter_coronavirus_vaccine:
-  - text: The latest COVID-19 vaccines are available at https://www.cowin.gov.in, for your awareness.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
-  - text: Please go to https://www.cowin.gov.in to get a slot for receiving the COVID-19 vaccination.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
-  - text: Looking to get vaccinated? Find the most reliable COVID-19 vaccination slots at https://www.cowin.gov.in.
-    image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
+    text: The latest COVID-19 vaccines are available at https://www.cowin.gov.in, for your awareness.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
+    text: Please go to https://www.cowin.gov.in to get a slot for receiving the COVID-19 vaccination.
+  - image: https://raw.githubusercontent.com/AVS1508/elementary_chatbot/main/assets/COVID-19%20Vaccine.png
+    text: Looking to get vaccinated? Find the most reliable COVID-19 vaccination slots at https://www.cowin.gov.in.
   utter_ask_1_is_vaccinated:
   - buttons:
     - payload: 'true'
@@ -247,15 +247,15 @@ responses:
     text: Have you taken the vaccination for COVID-19?
   utter_ask_2_vaccine_brand:
   - quick_replies:
-    - payload: 'Covaxin'
+    - payload: Covaxin
       title: Covaxin
-    - payload: 'Covishield'
+    - payload: Covishield
       title: Covishield
-    - payload: 'Sputnik'
+    - payload: Sputnik
       title: Sputnik
-    - payload: 'Other'
+    - payload: Other
       title: Other
-    - payload: 'None'
+    - payload: None
       title: None
     text: Which vaccine have you taken (if you have not, choose None)?
   utter_ask_3_num_doses:

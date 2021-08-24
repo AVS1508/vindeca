@@ -197,6 +197,7 @@ nlu:
     - How many people infected with [coronavirus](coronavirus) have [recovered](statistics)?
     - Tell me about [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} please
     - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} [statistics](statistics)
+    - I want [COVID](coronavirus) [statistics](statistics)
 - intent: coronavirus_guidance
   examples: |
     - How to go about [social distancing](quarantine)?
@@ -320,6 +321,9 @@ nlu:
     - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"}
     - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} Self-[Assess]{"entity": "assessment", "value": "assessment"}
     - [assess]{"entity": "assessment", "value": "assessment"}
+    - 1
+    - [COVID-19]{"entity": "coronavirus", "value": "coronavirus"} Self [Assess]{"entity": "assessment", "value": "assessment"}
+    - [COVId-19]{"entity": "coronavirus", "value": "coronavirus"} Self [Assess]{"entity": "assessment", "value": "assessment"}
 - synonym: coronavirus
   examples: |
     - COVID-19

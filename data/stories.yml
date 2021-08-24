@@ -160,7 +160,6 @@ stories:
     - requested_slot: None
   - active_loop: null
   - action: action_reset_slots
-
 - story: User interrupts the coronavirus assessment form and doesn't want to continue
   steps:
   - intent: coronavirus_assessment
@@ -173,7 +172,6 @@ stories:
   - slot_was_set:
     - requested_slot: None
   - active_loop: null
-
 - story: User interrupts the coronavirus assessment form but wants to continue
   steps:
   - intent: coronavirus_assessment
@@ -183,3 +181,74 @@ stories:
   - action: utter_ask_continue
   - intent: affirm
   - active_loop: form_coronavirus_assessment
+- story: Story from Conversation ID 921e320e151740b7ae77f7723ddcf8f2
+  steps:
+  - intent: coronavirus_assessment
+    entities:
+    - coronavirus: coronavirus
+    - assessment: assessment
+  - action: form_coronavirus_assessment
+  - active_loop: form_coronavirus_assessment
+  - slot_was_set:
+    - requested_slot: 1_is_vaccinated
+  - intent: affirm
+    entities:
+    - affirmative: affirmative
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 1_is_vaccinated: 'true'
+  - slot_was_set:
+    - requested_slot: 2_vaccine_brand
+  - intent: deny
+    entities:
+    - negative: None
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 2_vaccine_brand: None
+  - slot_was_set:
+    - requested_slot: 3_num_doses
+  - intent: coronavirus_vaccine
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 3_num_doses: '2'
+  - slot_was_set:
+    - requested_slot: 4_past_infection
+  - intent: deny
+    entities:
+    - negative: negative
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 4_past_infection: 'false'
+  - slot_was_set:
+    - requested_slot: 5_current_symptoms
+  - intent: deny
+    entities:
+    - negative: negative
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 5_current_symptoms: 'false'
+  - slot_was_set:
+    - requested_slot: 6_preexisting_conditions
+  - intent: deny
+    entities:
+    - negative: negative
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 6_preexisting_conditions: 'false'
+  - slot_was_set:
+    - requested_slot: 7_travel_interstate
+  - intent: deny
+    entities:
+    - negative: negative
+  - action: form_coronavirus_assessment
+  - slot_was_set:
+    - 7_travel_interstate: 'false'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: explain_coronavirus_assessment
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_reset_slots
